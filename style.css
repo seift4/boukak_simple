@@ -67,7 +67,7 @@ body {
 
 /* --- الوضع المظلم (Dark Mode) --- */
 .dark-mode .theme-toggle-btn {
-    background-color: #11121a48; /* كحلي غامق */
+    background-color: #11121af6; /* كحلي غامق */
     border-color: #1811a6;     /* البوردر يبقى بنفسجي */
 }
 
@@ -1866,7 +1866,7 @@ background: linear-gradient(to bottom, rgba(15, 15, 26, 0.792) 0%, rgba(124, 58,
 
 @media (max-width: 768px) {
     .features-section {
-    height: 260vh;
+    height: 240vh;
     width: 100%;
     padding: 100px 0;
     background-color: var(--bg-color); /* خلفية فاتحة ومريحة تبرز ألوان الموبايلات */
@@ -3629,7 +3629,8 @@ input:checked + .slider:before {
         align-items: center;
         justify-content: center;
         position: relative;
-        bottom:90px;
+        bottom:-10px;
+        left: 20px;
     }
     .footer-links-group{
                 justify-content: center;
@@ -3638,7 +3639,8 @@ input:checked + .slider:before {
         align-items: center;
         justify-content: center;
         position: relative;
-        bottom:50px;
+        bottom:-60px;
+        left: 20px;
     }
     .cta-left-brand{
         margin-left: 0;
@@ -3665,7 +3667,8 @@ input:checked + .slider:before {
     }
     .footer-copyright{
         position: relative;
-        bottom: 95px;
+        bottom: -20px;
+        left: 15px;
     }
     .footer-dark-card {
         height: 105vh;
