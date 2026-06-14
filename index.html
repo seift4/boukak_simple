@@ -1,5 +1,6 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,62 +10,68 @@
 </head>
 <body>
 
+
     <button id="darkToggle" class="theme-toggle-btn">
     <img id="toggleIcon" src="img/dark_mode.png" alt="Toggle Theme">
 </button>
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="#" class="logo">
+            <img src="img/BoukakLogo.png" alt="Boukak Logo"> 
+        </a>
 
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <img src="img/BoukakLogo.png" alt="Boukak Logo"> 
-            </a>
+        <button class="menu-toggle" id="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
 
-            <button class="menu-toggle" id="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
+        <div class="nav-menu-wrapper" id="nav-menu-wrapper">
+            <ul class="nav-links">
+                <li class="dropdown">
+    <a href="#" class="dropdown-toggle">
+        <span data-i18n="products">Products</span> 
+        <i class="fas fa-chevron-down arrow-icon"></i>
+    </a>
+    <ul class="dropdown-menu">
+                        <li><a href="#" data-i18n="loyalty">Loyalty Cards</a></li>
+                        <li><a href="#" data-i18n="rewards">Rewards System</a></li>
+                        <li><a href="#" data-i18n="notifications">Smart Notifications</a></li>
+                        <li><a href="#" data-i18n="analytics">Analytics Dashboard</a></li>
+                    </ul>
+                </li>
+                
+                <li><a href="#" data-i18n="features">Features</a></li>
+                <li><a href="#" data-i18n="pricing">Pricing</a></li>
+                
+<li class="dropdown lang-dropdown">
+    <a href="#" class="dropdown-toggle">
+        <span data-i18n="lang">English</span> 
+        <i class="fas fa-chevron-down arrow-icon"></i>
+    </a>
+    <ul class="dropdown-menu">
+        <li><a href="#" onclick="switchToEnglish()">English</a></li>
+        <li><a href="#" onclick="switchToArabic()">عربي</a></li>
+    </ul>
+</li>
+            </ul>
 
-            <div class="nav-menu-wrapper" id="nav-menu-wrapper">
-                <ul class="nav-links">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle">Products <i class="fas fa-chevron-down arrow-icon"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Loyalty Cards</a></li>
-                            <li><a href="#">Rewards System</a></li>
-                            <li><a href="#">Smart Notifications</a></li>
-                            <li><a href="#">Analytics Dashboard</a></li>
-                        </ul>
-                    </li>
-                    
-                    <li><a href="#">Features</a></li>
-                    <li><a href="#">Pricing</a></li>
-                    
-                    <li class="dropdown lang-dropdown">
-                        <a href="#" class="dropdown-toggle">عربي <i class="fas fa-chevron-down arrow-icon"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">English</a></li>
-                            <li><a href="#">عربي</a></li>
-                        </ul>
-                    </li>
-                </ul>
-
-                <div class="nav-buttons">
-                    <a href="#" class="btn btn-login">LOG IN</a>
-                    <a href="#" class="btn btn-contact">CONTACT US</a>
-                </div>
+            <div class="nav-buttons">
+                <a href="#" class="btn btn-login" data-i18n="login">LOG IN</a>
+                <a href="#" class="btn btn-contact" data-i18n="contact">CONTACT US</a>
             </div>
         </div>
-    </nav>
+    </div>
+</nav>
 
 <section class="hero-premium-section">
     <div class="container">
         
         <div class="hero-top-content">
-            <h1>A Smarter Way To Keep <br><span>Customers Coming Back</span></h1>
-            <p class="hero-subtitle">Launch digital loyalty cards, rewards, and automated notifications in minutes.</p>
+            <h1 data-i18n="hero_title">A Smarter Way To Keep <span data-i18n="hero_title_span">Customers Coming Back</span></h1>
+            <p class="hero-subtitle" data-i18n="hero_subtitle">Launch digital loyalty cards, rewards, and automated notifications in minutes.</p>
             
             <div class="hero-action-buttons">
-                <a href="#" class="btn-hero-dark">CONTACT US</a>
-                <a href="#" class="btn-hero-white">TRY A DEMO</a>
+                <a href="#" class="btn-hero-dark" data-i18n="contact_us">CONTACT US</a>
+                <a href="#" class="btn-hero-white" data-i18n="try_demo">TRY A DEMO</a>
             </div>
         </div>
 
@@ -74,19 +81,24 @@
                 <div class="brand-trust-badge">
                     <img src="img/soud.png" alt="Saudi Tech Logo" class="saudi-badge-img">
                     <div class="trust-text">
-                        <p class="trust-title">Trusted by</p>
-                        <p class="trust-count">+100 businesses</p>
+                        <p class="trust-title" data-i18n="trusted_by">Trusted by</p>
+                        <p class="trust-count" data-i18n="trust_count">+100 businesses</p>
                     </div>
                 </div>
             </div>
 
-            <div class="hero-showcase-center">
-                <div class="phone-cards-wrapper">
-                    <img src="img/cards.png" alt="Loyalty Cards Background" class="hero-cards-back">
-                    <img src="img/bgg.png" alt="Boukak App on iPhone" class="hero-phone-front">
-                </div>
-            </div>
+<div class="display-zone">
+    <img src="img/top.png" class="card-item" data-card="car-wash-1" alt="Card">
+    <img src="img/Rectangle 26.png" class="card-item" data-card="car-wash-2" alt="Card">
+    <img src="img/Rectangle 25.png" class="card-item" data-card="coffee-shop" alt="Card">
+    <img src="img/Rectangle 24.png" class="card-item" data-card="restaurants" alt="Card">
+    <img src="img/Rectangle 23.png" class="card-item" data-card="clinics" alt="Card">
 
+    <div class="viewport-box">
+        <img src="img/Rectangle 68.png" class="frame-img" alt="Phone Frame">
+        <img src="img/top.png" class="active-card-img" id="main-active-card" alt="Active Card">
+    </div>
+</div>
             <div class="hero-showcase-side right-side">
                 <div class="wallet-badges-container">
                     <a href="#" class="wallet-badge-link">
@@ -109,27 +121,27 @@
 <section class="card-type-section">
     <div class="container">
         <div class="sectionn-header reveal">
-            <h2>Card <span>Type</span></h2>
-            <p>Choose the loyalty mechanism that fits your business, from simple coffee shops to sophisticated cashback ecosystem.</p>
+            <h2 data-i18n="card_type_title">Card <span data-i18n="card_type_title_span">Type</span></h2>
+            <p data-i18n="card_type_subtitle">Choose the loyalty mechanism that fits your business, from simple coffee shops to sophisticated cashback ecosystem.</p>
         </div>
 
         <div class="tabs-buttons-container reveal">
-            <button class="tab-btn active" data-target="stamp">Stamps</button>
-            <button class="tab-btn" data-target="cashback">CashBack</button>
-            <button class="tab-btn" data-target="discount">Discount</button>
-            <button class="tab-btn" data-target="prepaid">Prepaid</button>
-            <button class="tab-btn" data-target="points">Points</button>
-            <button class="tab-btn" data-target="subscription">Subscription</button>
-            <button class="tab-btn" data-target="membership">Membership</button>
+            <button class="tab-btn active" data-target="stamp" data-i18n="tab_stamps">Stamps</button>
+            <button class="tab-btn" data-target="cashback" data-i18n="tab_cashback">CashBack</button>
+            <button class="tab-btn" data-target="discount" data-i18n="tab_discount">Discount</button>
+            <button class="tab-btn" data-target="prepaid" data-i18n="tab_prepaid">Prepaid</button>
+            <button class="tab-btn" data-target="points" data-i18n="tab_points">Points</button>
+            <button class="tab-btn" data-target="subscription" data-i18n="tab_subscription">Subscription</button>
+            <button class="tab-btn" data-target="membership" data-i18n="tab_membership">Membership</button>
         </div>
 
       <div class="tab-content-wrapper reveal">
     
     <div class="tab-content-item active" id="stamp">
         <div class="tab-text-side">
-            <h3>Stamp Card</h3>
-            <p>Reward your customers for repeat visits. Collect stamps on each purchase and unlock rewards easily.</p>
-            <a href="#" class="btn-tab-demo">TRY A DEMO</a>
+            <h3 data-i18n="stamp_title">Stamp Card</h3>
+            <p data-i18n="stamp_desc">Reward your customers for repeat visits. Collect stamps on each purchase and unlock rewards easily.</p>
+            <a href="#" class="btn-tab-demo" data-i18n="try_demo">TRY A DEMO</a>
         </div>
         <div class="tab-image-side">
             <div class="image-showcase-container" style="--glass-color: 124, 58, 237;">
@@ -142,9 +154,9 @@
 
     <div class="tab-content-item" id="cashback">
         <div class="tab-text-side">
-            <h3>Cashback Card</h3>
-            <p>Give back a percentage of every purchase. Encourage customers to return and spend more accumulated balance.</p>
-            <a href="#" class="btn-tab-demo">TRY A DEMO</a>
+            <h3 data-i18n="cashback_title">Cashback Card</h3>
+            <p data-i18n="cashback_desc">Give back a percentage of every purchase. Encourage customers to return and spend more accumulated balance.</p>
+            <a href="#" class="btn-tab-demo" data-i18n="try_demo">TRY A DEMO</a>
         </div>
         <div class="tab-image-side">
             <div class="image-showcase-container" style="--glass-color: 244, 87, 126;">
@@ -157,9 +169,9 @@
 
     <div class="tab-content-item" id="discount">
         <div class="tab-text-side">
-            <h3>Discount Card</h3>
-            <p>Offer tiered discounts to loyalty tiers. Driving sales and effective for boosting conversions.</p>
-            <a href="#" class="btn-tab-demo">TRY A DEMO</a>
+            <h3 data-i18n="discount_title">Discount Card</h3>
+            <p data-i18n="discount_desc">Offer tiered discounts to loyalty tiers. Driving sales and effective for boosting conversions.</p>
+            <a href="#" class="btn-tab-demo" data-i18n="try_demo">TRY A DEMO</a>
         </div>
         <div class="tab-image-side">
             <div class="image-showcase-container" style="--glass-color: 247, 159, 158;">
@@ -172,9 +184,9 @@
 
     <div class="tab-content-item" id="prepaid">
         <div class="tab-text-side">
-            <h3>Prepaid Card</h3>
-            <p>Let customers pay in advance and spend later. It creates a seamless experience for faster checkouts.</p>
-            <a href="#" class="btn-tab-demo">TRY A DEMO</a>
+            <h3 data-i18n="prepaid_title">Prepaid Card</h3>
+            <p data-i18n="prepaid_desc">Let customers pay in advance and spend later. It creates a seamless experience for faster checkouts.</p>
+            <a href="#" class="btn-tab-demo" data-i18n="try_demo">TRY A DEMO</a>
         </div>
         <div class="tab-image-side">
             <div class="image-showcase-container" style="--glass-color: 246, 152, 43;">
@@ -187,9 +199,9 @@
 
     <div class="tab-content-item" id="points">
         <div class="tab-text-side">
-            <h3>Point Card</h3>
-            <p>Earn points with every purchase and redeem rewards. Build long-term engagement with flexible incentives.</p>
-            <a href="#" class="btn-tab-demo">TRY A DEMO</a>
+            <h3 data-i18n="points_title">Point Card</h3>
+            <p data-i18n="points_desc">Earn points with every purchase and redeem rewards. Build long-term engagement with flexible incentives.</p>
+            <a href="#" class="btn-tab-demo" data-i18n="try_demo">TRY A DEMO</a>
         </div>
         <div class="tab-image-side">
             <div class="image-showcase-container" style="--glass-color: 149, 232, 217;">
@@ -202,9 +214,9 @@
 
     <div class="tab-content-item" id="subscription">
         <div class="tab-text-side">
-            <h3>Subscription Card</h3>
-            <p>Offer exclusive access with recurring plans. Create predictable revenue and loyal members.</p>
-            <a href="#" class="btn-tab-demo">TRY A DEMO</a>
+            <h3 data-i18n="subscription_title">Subscription Card</h3>
+            <p data-i18n="subscription_desc">Offer exclusive access with recurring plans. Create predictable revenue and loyal members.</p>
+            <a href="#" class="btn-tab-demo" data-i18n="try_demo">TRY A DEMO</a>
         </div>
         <div class="tab-image-side">
             <div class="image-showcase-container" style="--glass-color: 166, 206, 255;">
@@ -217,9 +229,9 @@
 
     <div class="tab-content-item" id="membership">
         <div class="tab-text-side">
-            <h3>Membership Card</h3>
-            <p>Offer exclusive access with recurring plans. Create predictable revenue and loyal members.</p>
-            <a href="#" class="btn-tab-demo">TRY A DEMO</a>
+            <h3 data-i18n="membership_title">Membership Card</h3>
+            <p data-i18n="membership_desc">Offer exclusive access with recurring plans. Create predictable revenue and loyal members.</p>
+            <a href="#" class="btn-tab-demo" data-i18n="try_demo">TRY A DEMO</a>
         </div>
         <div class="tab-image-side">
             <div class="image-showcase-container" style="--glass-color: 146, 177, 198;">
@@ -238,16 +250,16 @@
     <div class="container">
         
         <div class="section-headerr reveal">
-            <h2>Design Your <span>Card</span></h2>
-            <p>Choose the right card design for your business and offer a professional loyalty experience to your customers.</p>
+            <h2 data-i18n="design_card_title">Design Your <span data-i18n="design_card_title_span">Card</span></h2>
+            <p data-i18n="design_card_subtitle">Choose the right card design for your business and offer a professional loyalty experience to your customers.</p>
         </div>
 
         <div class="design-tabs-container reveal">
-            <button class="design-tab-btn active" data-target="car-wash">Car Wash</button>
-            <button class="design-tab-btn" data-target="coffee-shop">Coffee Shop</button>
-            <button class="design-tab-btn" data-target="restaurants">Restaurants</button>
-            <button class="design-tab-btn" data-target="clinics">Clinics</button>
-            <button class="design-tab-btn" data-target="massage">Massage Center</button>
+            <button class="design-tab-btn active" data-target="car-wash" data-i18n="design_tab_carwash">Car Wash</button>
+            <button class="design-tab-btn" data-target="coffee-shop" data-i18n="design_tab_coffee">Coffee Shop</button>
+            <button class="design-tab-btn" data-target="restaurants" data-i18n="design_tab_restaurants">Restaurants</button>
+            <button class="design-tab-btn" data-target="clinics" data-i18n="design_tab_clinics">Clinics</button>
+            <button class="design-tab-btn" data-target="massage" data-i18n="design_tab_massage">Massage Center</button>
         </div>
 
         <div class="design-showcase-wrapper reveal">
@@ -280,48 +292,48 @@
     <div class="container">
         
         <div class="sectionn-header reveal">
-            <h2>How It Works for <span class="highlight">Your Customers</span></h2>
-            <p>A seamless experience your customers will love, no apps, no hassle, just rewards.</p>
+            <h2 data-i18n="how_works_title">How It Works for <span class="highlight" data-i18n="how_works_title_span">Your Customers</span></h2>
+            <p data-i18n="how_works_subtitle">A seamless experience your customers will love, no apps, no hassle, just rewards.</p>
         </div>
 <div class="steps-grid-container reveal">
     
     <div class="step-card active" style="background-image: url('img/ph1.png');">
         <div class="step-dynamic-content">
             <span class="step-number">01</span>
-            <h3 class="step-title">First Step</h3>
-            <p class="step-description">Open the camera app or scanner to capture the custom merchant code instantly.</p>
+            <h3 class="step-title" data-i18n="step1_title">First Step</h3>
+            <p class="step-description" data-i18n="step1_desc">Open the camera app or scanner to capture the custom merchant code instantly.</p>
         </div>
     </div>
 
     <div class="step-card" style="background-image: url('img/ph2.png');">
         <div class="step-dynamic-content">
             <span class="step-number">02</span>
-            <h3 class="step-title">Secound Step</h3>
-            <p class="step-description">Their Boukak card appears instantly on their phone, no app needed.</p>
+            <h3 class="step-title" data-i18n="step2_title">Secound Step</h3>
+            <p class="step-description" data-i18n="step2_desc">Their Boukak card appears instantly on their phone, no app needed.</p>
         </div>
     </div>
 
     <div class="step-card" style="background-image: url('img/ph3.png');">
         <div class="step-dynamic-content">
             <span class="step-number">03</span>
-            <h3 class="step-title">Third Step</h3>
-            <p class="step-description">Scan the digital loyalty card at the point of sale to add stamps seamlessly.</p>
+            <h3 class="step-title" data-i18n="step3_title">Third Step</h3>
+            <p class="step-description" data-i18n="step3_desc">Scan the digital loyalty card at the point of sale to add stamps seamlessly.</p>
         </div>
     </div>
 
     <div class="step-card" style="background-image: url('img/ph4.png');">
         <div class="step-dynamic-content">
             <span class="step-number">04</span>
-            <h3 class="step-title">Fourth Step</h3>
-            <p class="step-description">Unlock exclusive rewards and watch your loyal customers keep coming back.</p>
+            <h3 class="step-title" data-i18n="step4_title">Fourth Step</h3>
+            <p class="step-description" data-i18n="step4_desc">Unlock exclusive rewards and watch your loyal customers keep coming back.</p>
         </div>
     </div>
 
 </div>
 
         <div class="steps-badges reveal">
-            <span class="badge-btn">No app download required</span>
-            <span class="badge-btn">Works instantly on any phone</span>
+            <span class="badge-btn" data-i18n="step_badge1">No app download required</span>
+            <span class="badge-btn" data-i18n="step_badge2">Works instantly on any phone</span>
         </div>
 
     </div>
@@ -332,7 +344,7 @@
     <div class="container">
         
         <div class="dashboard-header reveal">
-            <h2>All Your <span>Loyalty Data</span> <h1>in One Dashboard</h1></h2>
+            <h2 data-i18n="dashboard_title">All Your <span data-i18n="dashboard_title_span">Loyalty Data</span> <h1 data-i18n="dashboard_title_sub">in One Dashboard</h1></h2>
         </div>
 
         <div class="dashboard-image-wrapper reveal">
@@ -340,7 +352,7 @@
         </div>
 
         <div class="dashboard-footer-content reveal">
-            <p class="dashboard-description">
+            <p class="dashboard-description" data-i18n="dashboard_desc">
                 Track your loyalty program performance in real time.<br>
                 Get clear insights into customer behavior, retention, and revenue, all from one powerful dashboard.
             </p>
@@ -348,19 +360,19 @@
             <div class="dashboard-features-badges">
                 <span class="featuree-badge">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    Track customer visits
+                    <span data-i18n="dash_badge1">Track customer visits</span>
                 </span>
                 <span class="featuree-badge">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    Monitor revenue
+                    <span data-i18n="dash_badge2">Monitor revenue</span>
                 </span>
                 <span class="featuree-badge">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    Real-time insights
+                    <span data-i18n="dash_badge3">Real-time insights</span>
                 </span>
                 <span class="featuree-badge">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    Export reports
+                    <span data-i18n="dash_badge4">Export reports</span>
                 </span>
             </div>
         </div>
@@ -373,8 +385,8 @@
 <section class="features-section">
         <!-- النصوص العلوية -->
         <div class="header-container reveal">
-            <h1>Smart System for <span class="highlight">Customer Loyalty</span></h1>
-            <p class="subtitle">Track visits, manage rewards, send smart notifications, and build stronger customer relationships, all from one platform.</p>
+            <h1 data-i18n="features_section_title">Smart System for <span class="highlight" data-i18n="features_section_title_span">Customer Loyalty</span></h1>
+            <p class="subtitle" data-i18n="features_section_subtitle">Track visits, manage rewards, send smart notifications, and build stronger customer relationships, all from one platform.</p>
         </div>
 
         <!-- الحاوية الـ 4 divs -->
@@ -386,8 +398,8 @@
                     <!-- استبدل image1.png برابط صورتك الحقيقية -->
                     <img src="img/m1.png" alt="Live Analytics">
                 </div>
-                <h3>Live Analytics</h3>
-                <p>Track visits, engagement, and loyalty performance in real time.</p>
+                <h3 data-i18n="feat1_title">Live Analytics</h3>
+                <p data-i18n="feat1_desc">Track visits, engagement, and loyalty performance in real time.</p>
             </div>
 
             <!-- الكرت الثاني: مرتفع لأعلى (Elevated) -->
@@ -396,8 +408,8 @@
                     <!-- استبدل image2.png برابط صورتك الحقيقية -->
                     <img src="img/m2.png" alt="Customer Management">
                 </div>
-                <h3>Customer Management</h3>
-                <p>Monitor customer activity, visits, and loyalty status in one place.</p>
+                <h3 data-i18n="feat2_title">Customer Management</h3>
+                <p data-i18n="feat2_desc">Monitor customer activity, visits, and loyalty status in one place.</p>
             </div>
 
             <!-- الكرت الثالث: مرتفع لأعلى (Elevated) -->
@@ -406,8 +418,8 @@
                     <!-- استبدل image3.png برابط صورتك الحقيقية -->
                     <img src="img/m3.png" alt="Rewards & Stamps">
                 </div>
-                <h3>Rewards & Stamps</h3>
-                <p>Issue digital stamps and rewards with a seamless experience.</p>
+                <h3 data-i18n="feat3_title">Rewards & Stamps</h3>
+                <p data-i18n="feat3_desc">Issue digital stamps and rewards with a seamless experience.</p>
             </div>
 
             <!-- الكرت الرابع: عادي -->
@@ -416,8 +428,8 @@
                     <!-- استبدل image4.png برابط صورتك الحقيقية -->
                     <img src="img/m4.png" alt="Smart Notifications">
                 </div>
-                <h3>Smart Notifications</h3>
-                <p>Send automated offers and reminders at the perfect time.</p>
+                <h3 data-i18n="feat4_title">Smart Notifications</h3>
+                <p data-i18n="feat4_desc">Send automated offers and reminders at the perfect time.</p>
             </div>
 
         </div>
@@ -425,8 +437,8 @@
     
 <section class="reach-customers-section">
     <div class="section-header reveal">
-        <h2>How To Reach <br> Your <span class="purple-text">Customers</span></h2>
-        <p class="section-subtitle">Automate customer engagement with smart notifications, location targeting, and personalized messaging.</p>
+        <h2 data-i18n="reach_title">How To Reach <br> Your <span class="purple-text" data-i18n="reach_title_span">Customers</span></h2>
+        <p class="section-subtitle" data-i18n="reach_subtitle">Automate customer engagement with smart notifications, location targeting, and personalized messaging.</p>
     </div>
 
     <div class="cards-stack-container ">
@@ -435,8 +447,8 @@
                 <div class="icon-wrapper">
                     <svg viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                 </div>
-                <h3>Send Notification</h3>
-                <p>Send real-time notifications to your customers instantly. Keep them updated with offers, reminders, and important updates right when it matters most.</p>
+                <h3 data-i18n="reach1_title">Send Notification</h3>
+                <p data-i18n="reach1_desc">Send real-time notifications to your customers instantly. Keep them updated with offers, reminders, and important updates right when it matters most.</p>
             </div>
             <div class="image-content">
                 <img src="img/r1.png" alt="Phone Notification Preview">
@@ -448,8 +460,8 @@
                 <div class="icon-wrapper">
                     <svg viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle><circle cx="19" cy="5" r="1" fill="#7c3aed"></circle><circle cx="21" cy="9" r="1" fill="#7c3aed"></circle><circle cx="17" cy="9" r="1" fill="#7c3aed"></circle></svg>
                 </div>
-                <h3>Notifications Automation</h3>
-                <p>Automate your customer engagement with smart triggers. Send personalized messages based on customer behavior, visits, or milestones without manual effort.</p>
+                <h3 data-i18n="reach2_title">Notifications Automation</h3>
+                <p data-i18n="reach2_desc">Automate your customer engagement with smart triggers. Send personalized messages based on customer behavior, visits, or milestones without manual effort.</p>
             </div>
             <div class="image-content">
                 <img src="img/r2.png" alt="Notifications Automation Screen">
@@ -461,8 +473,8 @@
                 <div class="icon-wrapper">
                     <svg viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line><circle cx="12" cy="10" r="2" fill="#7c3aed"></circle></svg>
                 </div>
-                <h3>Location Notifications</h3>
-                <p>Reach your customers at the right place and time. Send targeted notifications based on their location to increase visits and drive more in-store engagement.</p>
+                <h3 data-i18n="reach3_title">Location Notifications</h3>
+                <p data-i18n="reach3_desc">Reach your customers at the right place and time. Send targeted notifications based on their location to increase visits and drive more in-store engagement.</p>
             </div>
             <div class="image-content">
                 <img src="img/r3.png" alt="Location Notifications Screen">
@@ -478,7 +490,7 @@
 <section class="wallets-support-section">
     <div class="container">
         <div class="wallets-header reveal">
-            <h2>We support <br><span class="purple-gradient-text">Apple & Google Wallets</span></h2>
+            <h2 data-i18n="wallets_title">We support <br><span class="purple-gradient-text" data-i18n="wallets_title_span">Apple & Google Wallets</span></h2>
         </div>
 
         <div class="wallet-buttons-container reveal">
@@ -510,7 +522,7 @@
     <div class="container">
         
         <div class="seection-header reveal">
-            <h2>What Our Valuable <br><span class="purple-text">Customer</span> Says</h2>
+            <h2 data-i18n="testimonials_title">What Our Valuable <br><span class="purple-text" data-i18n="testimonials_title_span">Customer</span> Says</h2>
         </div>
 
         <div class="testimonials-grid reveal">
@@ -519,10 +531,10 @@
                     <img src="img/petro.png" alt="Petro Wash Logo" class="client-logo">
                     <div class="client-info">
                         <h3>Petro Wash</h3>
-                        <p>Whash Center</p>
+                        <p data-i18n="t1_role">Whash Center</p>
                     </div>
                 </div>
-                <p class="testimonial-text">"Since we started using Boukak, customer engagement has completely changed for us. The automated notifications and loyalty features helped us bring customers back more often and create a smoother experience overall."</p>
+                <p class="testimonial-text" data-i18n="t1_text">"Since we started using Boukak, customer engagement has completely changed for us. The automated notifications and loyalty features helped us bring customers back more often and create a smoother experience overall."</p>
             </div>
 
             <div class="testimonial-card bt">
@@ -530,10 +542,10 @@
                     <img src="img/golden.png" alt="Golden Petrol Logo" class="client-logo">
                     <div class="client-info">
                         <h3>Golden Petrol</h3>
-                        <p>Gas Company</p>
+                        <p data-i18n="t2_role">Gas Company</p>
                     </div>
                 </div>
-                <p class="testimonial-text">"Boukak made it much easier to manage our customer loyalty program. We can now track visits, monitor engagement, and send targeted offers in a very organized and professional way."</p>
+                <p class="testimonial-text" data-i18n="t2_text">"Boukak made it much easier to manage our customer loyalty program. We can now track visits, monitor engagement, and send targeted offers in a very organized and professional way."</p>
             </div>
 
             <div class="testimonial-card bt">
@@ -541,10 +553,10 @@
                     <img src="img/black5.png" alt="Black5 Logo" class="client-logo">
                     <div class="client-info">
                         <h3>Black5</h3>
-                        <p>Coffee shop</p>
+                        <p data-i18n="t3_role">Coffee shop</p>
                     </div>
                 </div>
-                <p class="testimonial-text">"We wanted a simple but smart loyalty system, and Boukak delivered exactly that. Customers interact more with our offers now, and the entire rewards experience feels seamless."</p>
+                <p class="testimonial-text" data-i18n="t3_text">"We wanted a simple but smart loyalty system, and Boukak delivered exactly that. Customers interact more with our offers now, and the entire rewards experience feels seamless."</p>
             </div>
 
             <div class="testimonial-card bt">
@@ -552,10 +564,10 @@
                     <img src="img/aoz.png" alt="AOZ ALBUN Logo" class="client-logo">
                     <div class="client-info">
                         <h3>AOZ ALBUN</h3>
-                        <p>Nail Spa</p>
+                        <p data-i18n="t4_role">Nail Spa</p>
                     </div>
                 </div>
-                <p class="testimonial-text">"One of the best things about Boukak is how easy it is to use. Managing customer rewards, visits, and engagement became much more organized, and we noticed customers returning more."</p>
+                <p class="testimonial-text" data-i18n="t4_text">"One of the best things about Boukak is how easy it is to use. Managing customer rewards, visits, and engagement became much more organized, and we noticed customers returning more."</p>
             </div>
 
             <div class="testimonial-card bt">
@@ -563,10 +575,10 @@
                     <img src="img/loop.png" alt="Loop Logo" class="client-logo">
                     <div class="client-info">
                         <h3>Loop</h3>
-                        <p>Mobile Shop</p>
+                        <p data-i18n="t5_role">Mobile Shop</p>
                     </div>
                 </div>
-                <p class="testimonial-text">"Boukak helped us create a more modern customer experience inside our store. The smart notifications and loyalty system made it easier to keep customers connected with our business."</p>
+                <p class="testimonial-text" data-i18n="t5_text">"Boukak helped us create a more modern customer experience inside our store. The smart notifications and loyalty system made it easier to keep customers connected with our business."</p>
             </div>
 
             <div class="testimonial-card bt">
@@ -574,10 +586,10 @@
                     <img src="img/yatamed.png" alt="Yatamed Logo" class="client-logo">
                     <div class="client-info">
                         <h3>Yatamed</h3>
-                        <p>Salon & Spa</p>
+                        <p data-i18n="t6_role">Salon & Spa</p>
                     </div>
                 </div>
-                <p class="testimonial-text">"Everything feels more professional with Boukak. From customer tracking to rewards and analytics, the system gave us better control over customer relationships and helped improve retention."</p>
+                <p class="testimonial-text" data-i18n="t6_text">"Everything feels more professional with Boukak. From customer tracking to rewards and analytics, the system gave us better control over customer relationships and helped improve retention."</p>
             </div>
         </div>
 
@@ -618,8 +630,8 @@
     <div class="container">
         
         <div class="pos-header reveal">
-            <h2>Seamless <span class="purple-text">POS</span> <br> Integrations</h2>
-            <p class="pos-subtitle">Connect your favorite Point of Sale system to automatically sync customer data and reward transactions in real-time. No manual entry, no friction.</p>
+            <h2 data-i18n="pos_title">Seamless <span class="purple-text" data-i18n="pos_title_span">POS</span> <br> Integrations</h2>
+            <p class="pos-subtitle" data-i18n="pos_subtitle">Connect your favorite Point of Sale system to automatically sync customer data and reward transactions in real-time. No manual entry, no friction.</p>
         </div>
 
 <div class="pos-logos-grid reveal">
@@ -629,7 +641,7 @@
             <img src="img/h.png" alt="Hozma Tech Logo" class="pos-logo-img">
             <div class="pos-details">
                 <h3>Hozma Tech</h3>
-                <p>Powerful payment processing and customer management for retailers.</p>
+                <p data-i18n="pos1_desc">Powerful payment processing and customer management for retailers.</p>
             </div>
         </div>
     </div>
@@ -639,7 +651,7 @@
             <img src="img/juleb.png" alt="Juleb Logo" class="pos-logo-img">
             <div class="pos-details">
                 <h3>JULEB</h3>
-                <p>Full-stack retail management with robust inventory and rewards.</p>
+                <p data-i18n="pos2_desc">Full-stack retail management with robust inventory and rewards.</p>
             </div>
         </div>
     </div>
@@ -649,15 +661,15 @@
             <img src="img/korage.png" alt="Garage Logo" class="pos-logo-img">
             <div class="pos-details">
                 <h3>Garage</h3>
-                <p>The leading all-in-one POS built specifically for restaurants.</p>
+                <p data-i18n="pos3_desc">The leading all-in-one POS built specifically for restaurants.</p>
             </div>
         </div>
     </div>
 
 </div>
         <div class="pos-footer reveal">
-            <p>Do you have an unregistered point of sale system?</p>
-            <a href="#" class="btn-contact-us">CONTACT US</a>
+            <p data-i18n="pos_footer_text">Do you have an unregistered point of sale system?</p>
+            <a href="#" class="btn-contact-us" data-i18n="contact_us">CONTACT US</a>
         </div>
 
     </div>
@@ -670,17 +682,17 @@
     <div class="container">
         
         <div class="plan-header reveal">
-            <h2>Build Your Own <br><span class="purple-text">Loyalty</span> Plan</h2>
-            <p class="plan-subtitle">Customize your subscription by selecting the features that fit your business needs. Pay only what you use.</p>
+            <h2 data-i18n="plan_title">Build Your Own <br><span class="purple-text" data-i18n="plan_title_span">Loyalty</span> Plan</h2>
+            <p class="plan-subtitle" data-i18n="plan_subtitle">Customize your subscription by selecting the features that fit your business needs. Pay only what you use.</p>
         </div>
 
         <div class="core-features-wrapper reveal">
-            <span class="core-title">By Default Core Feature</span>
+            <span class="core-title" data-i18n="core_title">By Default Core Feature</span>
             <div class="badges-container">
-                <span class="feature-badge">Unlimited digital cards</span>
-                <span class="feature-badge">Unlimited notification messages</span>
-                <span class="feature-badge">Welcome feature on site</span>
-                <span class="feature-badge">Scanner / Free Manager App</span>
+                <span class="feature-badge" data-i18n="core_badge1">Unlimited digital cards</span>
+                <span class="feature-badge" data-i18n="core_badge2">Unlimited notification messages</span>
+                <span class="feature-badge" data-i18n="core_badge3">Welcome feature on site</span>
+                <span class="feature-badge" data-i18n="core_badge4">Scanner / Free Manager App</span>
             </div>
         </div>
 
@@ -694,8 +706,8 @@
                             <svg viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><line x1="19" y1="8" x2="19" y2="14"></line><line x1="22" y1="11" x2="16" y2="11"></line></svg>
                         </div>
                         <div class="control-info">
-                            <h3>Manager Slots</h3>
-                            <p>SAR 5/slot. Empower your team.</p>
+                            <h3 data-i18n="calc1_title">Manager Slots</h3>
+                            <p data-i18n="calc1_desc">SAR 5/slot. Empower your team.</p>
                         </div>
                     </div>
                     <div class="counter-widget">
@@ -711,8 +723,8 @@
                             <svg viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="9"></line><line x1="9" y1="13" x2="15" y2="13"></line><line x1="9" y1="17" x2="13" y2="17"></line></svg>
                         </div>
                         <div class="control-info">
-                            <h3>Card Templates</h3>
-                            <p>SAR 10/mo. 50+ stamp design.</p>
+                            <h3 data-i18n="calc2_title">Card Templates</h3>
+                            <p data-i18n="calc2_desc">SAR 10/mo. 50+ stamp design.</p>
                         </div>
                     </div>
                     <div class="counter-widget">
@@ -728,8 +740,8 @@
                             <svg viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
                         </div>
                         <div class="control-info">
-                            <h3>Notification Scheduler</h3>
-                            <p>SAR 8/mo Automate customer engagement.</p>
+                            <h3 data-i18n="calc3_title">Notification Scheduler</h3>
+                            <p data-i18n="calc3_desc">SAR 8/mo Automate customer engagement.</p>
                         </div>
                     </div>
                     <label class="toggle-switch">
@@ -744,8 +756,8 @@
                             <svg viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"></path><path d="M12 16V12"></path><path d="M12 8H12.01"></path></svg>
                         </div>
                         <div class="control-info">
-                            <h3>Professional Card Design</h3>
-                            <p>SAR 25/mo Physical posters shipped to store</p>
+                            <h3 data-i18n="calc4_title">Professional Card Design</h3>
+                            <p data-i18n="calc4_desc">SAR 25/mo Physical posters shipped to store</p>
                         </div>
                     </div>
                     <label class="toggle-switch">
@@ -757,13 +769,13 @@
             </div>
 
             <div class="calc-invoice-panel reveal">
-                <h3 class="invoice-title">Selected Plan Total</h3>
+                <h3 class="invoice-title" data-i18n="invoice_title">Selected Plan Total</h3>
                 
                 <div class="price-display">
                     <span class="price-number" id="total-price-value">80</span>
                     <div class="price-currency-group">
                         <span class="currency">SAR</span>
-                        <span class="period">/annual</span>
+                        <span class="period" data-i18n="period_annual">/annual</span>
                     </div>
                 </div>
 
@@ -775,10 +787,10 @@
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                         <path d="m9 12 2 2 4-4"/>
                     </svg>
-                    <p>Include 24/7 priority support and all future core platform update. Cancel or change your plan at any time.</p>
+                    <p data-i18n="support_note">Include 24/7 priority support and all future core platform update. Cancel or change your plan at any time.</p>
                 </div>
 
-                <button class="btn-subscribe-now" type="button">Subscribe Now</button>
+                <button class="btn-subscribe-now" type="button" data-i18n="subscribe_now">Subscribe Now</button>
             </div>
 
         </div>
@@ -803,9 +815,9 @@
                 </div>
 
                 <div class="cta-right-content">
-                    <h2>Launch Your <br><span class="purple-bright-text">Loyalty Program</span></h2>
-                    <p class="trial-text">Start your 14-day free trial</p>
-                    <a href="#" class="btn-footer-contact">CONTACT US</a>
+                    <h2 data-i18n="footer_cta_title">Launch Your <br><span class="purple-bright-text" data-i18n="footer_cta_title_span">Loyalty Program</span></h2>
+                    <p class="trial-text" data-i18n="footer_trial">Start your 14-day free trial</p>
+                    <a href="#" class="btn-footer-contact" data-i18n="contact_us">CONTACT US</a>
                 </div>
             </div>
 
@@ -829,15 +841,15 @@
 
                 <div class="footer-bottom-right-side">
                         <div class="footer-links-group">
-                            <a href="#">Privacy Policy</a>
-                            <a href="#">Terms & Conditions</a>
+                            <a href="#" data-i18n="privacy_policy">Privacy Policy</a>
+                            <a href="#" data-i18n="terms_conditions">Terms & Conditions</a>
                         </div>
                         <div class="footer-meta-group">
-                            <a href="#" class="support-link">Contact Support</a>
+                            <a href="#" class="support-link" data-i18n="contact_support">Contact Support</a>
                             <span class="cr-number">CR NO: 2050198251</span>
                         </div>
                         <div class="footer-copyright">
-                            <p>© Copyright 2026. All Right Reserved</p>
+                            <p data-i18n="footer_copyright">© Copyright 2026. All Right Reserved</p>
                         </div>
                     </div>
                 </div>

@@ -373,6 +373,8 @@ body {
     position: relative;
     top: 60px;
     text-align: center;
+    justify-content: center;
+    align-items:center ;
     z-index: 10;
 }
 
@@ -383,10 +385,13 @@ body {
     line-height: 1.25;
     margin: 0 0 20px 0;
     letter-spacing: -1px;
+        text-align: center;
 }
-
-
+.hero-top-content h1 span{
+    display: block;
+}
 .hero-subtitle {
+
     font-size: 18px;
     color: #f0f0f1;
     max-width: 620px;
@@ -456,11 +461,18 @@ body {
 }
 
 .left-side {
+    position: relative;
+    right: 20px;
+    top: 60px;
     display: flex;
     justify-content: flex-start;
 }
 
 .right-side {
+    
+    position: relative;
+    left: 30px;
+    top: 60px;
     display: flex;
     justify-content: flex-end;
 }
@@ -516,48 +528,85 @@ top: 20px;
 /* ----------------------------------------------------
    هندسة الدمج الثلاثي الأبعاد (الموبايل والكروت)
    ---------------------------------------------------- */
-.hero-showcase-center {
+
+
+
+
+
+
+
+
+
+
+
+     .display-zone {
+        margin-top: 60px;
     position: relative;
+    top: 35px;
+    left: 40px;
     width: 100%;
-    max-width: 750px; /* كبرنا الحاوية من 580px لـ 720px عشان تستوعب الحجم الجديد */
+    height: 400px;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
-    transform: scale(2);
-    position: relative;
-
-bottom: 240px;}
-
-.phone-cards-wrapper {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
+    align-items: center;
+    overflow: hidden;
 }
 
-/* الكروت في الخلفية - بتكبر تلقائياً مع حجم الحاوية الجديد */
-.hero-cards-back {
+.card-item {
     position: absolute;
-    bottom: 0;
-    width: 100%; 
-    height: auto;
-    z-index: 1; 
-    pointer-events: none;
+    width: 180px;
+    transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+bottom: 50px;
 }
 
-/* الهاتف في الأمام - كبرناه هنا بشكل حقيقي وآمن */
-.hero-phone-front {
+/* المواقع الخمسة */
+.pos-a {
+     left: 10%; z-index: 1;
+    transform: perspective(1000px) rotateY(-30deg) scale(1.2);
+        transition: transform 0.5s ease;
+    border-radius: 30px;
+}
+
+.pos-b { 
+    
+ left: 24%; z-index: 2;
+   transform: perspective(1000px) rotateY(-30deg) scale(1.4);
+    transition: transform 0.5s ease; 
+     border-radius: 30px;
+}
+.pos-c {
+    display: none;
+ } /* المركز */
+.pos-d { 
+     right: 24%; z-index: 2;
+        transform: perspective(1000px) rotateY(30deg)scale(1.4);
+        transition: transform 0.5s ease;
+    border-radius: 30px; 
+}
+.pos-e {
+     right: 10%; z-index: 1;
+       transform: perspective(1000px) rotateY(30deg) scale(1.2);
+    transition: transform 0.5s ease; 
+     border-radius: 30px;
+ }
+
+.viewport-box {
     position: relative;
-    width: 320px; /* كبرنا العرض من 250px لـ 320px عشان يظهر ضخم وواضح */
-    height: auto;
-    z-index: 2; 
-    display: block;
-    margin: 0 auto;
-    /* لو حابب تدي لقطة أنيميشن ناعمة أول ما الموقع يفتح (اختياري) */
-    transition: transform 0.3s ease;
+    z-index: 4;
+    width: 250px;
 }
 
+.frame-img { 
+    transform: scale(1.4);
+    width: 100%; }
+.active-card-img {
+    position: absolute;
+    top: 26%; left: 8%;
+    width: 84%;
+    transform: scale(1.1);
+    transition: opacity 0.3s ease;
+}
 /* ==========================================
    التجاوب الذكي والشامل مع الشاشات (Responsive)
 ============================================= */
@@ -614,28 +663,126 @@ bottom: 240px;}
 
 bottom: 100px;}
 
-.left-side {
+
+
+.hero-premium-section {
+    width: 100%;
+height: 80vh;
+
+}
+}
+@media (max-width: 450px) {
+    .display-zone {
+        margin-top: 20px;
+        top: 0;
+        left: 0;
+        height: 300px; /* تقليل الارتفاع للموبايل */
+    }
+
+    .card-item {
+        width: 120px; /* تصغير حجم الكروت */
+        bottom: 20px;
+    }
+
+    /* تعديل المواقع لتناسب العرض الصغير */
+    .pos-a { left: 2%; transform: perspective(1000px) rotateY(-30deg) scale(0.9); }
+    .pos-b { left: 18%; transform: perspective(1000px) rotateY(-30deg) scale(1.1); }
+    
+    .pos-d { right: 18%; transform: perspective(1000px) rotateY(30deg) scale(1.1); }
+    .pos-e { right: 2%; transform: perspective(1000px) rotateY(30deg) scale(0.9); }
+
+    .viewport-box {
+        width: 180px; /* تصغير حجم الهاتف */
+    }
+
+    .frame-img {
+        transform: scale(1.1); /* تقليل التكبير ليناسب المساحة */
+    }
+
+    .active-card-img {
+        top: 25%;
+        left: 9%;
+        width: 82%;
+        transform: scale(1); /* إعادة الضبط ليناسب الإطار المصغر */
+    }
+}
+/* تحسين استجابة السكشن */
+@media (max-width: 768px) {
+    .hero-premium-section {
+        padding: 40px 20px;
+        height: auto;
+    }
+
+    .hero-top-content h1 {
+        font-size: 27px; /* تصغير العنوان للموبايل */
+    }
+
+    .hero-bottom-showcase {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+    }
+
+    .hero-showcase-side {
+        width: 100%;
+        padding-bottom: 20px;
+        display: none; /* إخفاء الشارات الجانبية في الموبايل إذا كانت تسبب زحمة */
+    }
+}
+
+/* ضبط منطقة الكروت للموبايل */
+@media (max-width: 480px) {
+    .display-zone {
+        margin-top: 20px;
+        left: 0; /* إلغاء الإزاحة الثابتة */
+        top: 0;
+        height: 250px;
+    }
+
+    .card-item {
+        border-radius: 15px;
+        width: 100px; /* تصغير حجم الكروت */
+        bottom: 29px;
+    }
+
+    .viewport-box {
+        width: 180px; /* تصغير الموبايل */
+    }
+    .active-card-img {
+    position: absolute;
+    top: 31%; left: 16%;
+    width: 67%;
+    transform: scale(1.1);
+    transition: opacity 0.3s ease;
+}
+    
+    .frame-img { transform: scale(1.1); }
+    
+    /* جعل الكروت الجانبية تظهر بشكل متقارب */
+    .pos-a { left: 0%; transform: scale(1); }
+    .pos-b { left: 10%; transform: scale(1.1); }
+    .pos-d { right: 10%; transform: scale(1.1); }
+    .pos-e { right: 0%; transform: scale(1); }
+
+
+    .left-side {
     display: flex;
     justify-content: flex-start;
-    position: relative;
-    right: 90px;
-    bottom: 32px;
+    position: absolute;
+    bottom: 0;
+    top: 285px;
+    right: 100px;
+
     transform: scale(.8);
 }
 
 .right-side {
     display: flex;
     justify-content: flex-end;
-        position: relative;
+  position: absolute;
+    top:  280px;
     left: 130px;
-    bottom: 115px;
     transform: scale(.5);
-}
-
-.hero-premium-section {
-    width: 100%;
-height: 80vh;
-
 }
 }
 
@@ -662,9 +809,6 @@ height: 80vh;
 /* لجعل الهاتف يبدو وكأنه يطفو قليلاً (Float Effect) */
 .hero-showcase-center {
     transition: transform 0.3s ease;
-}
-.hero-showcase-center:hover {
-    transform: scale(2.05) translateY(-10px); /* تفاعل خفيف عند الماوس */
 }
 
 /* 
@@ -3680,4 +3824,8 @@ body{
 }
 html{
     background-color: var(--bg-color);
+}
+
+*{
+    font-family: 'Neo Sans Arabic', sans-serif;
 }
