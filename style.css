@@ -569,7 +569,9 @@ bottom: 240px;}
 }
 
 @media (max-width: 768px) {
-    .hero-premium-section { padding-top: 60px; }
+    .hero-premium-section { 
+        
+        padding-top: 60px; }
     .hero-top-content h1 { font-size: 32px; }
     .hero-subtitle { font-size: 15px; padding: 0 15px; }
     
@@ -630,6 +632,11 @@ bottom: 100px;}
     transform: scale(.5);
 }
 
+.hero-premium-section {
+    width: 100%;
+height: 80vh;
+
+}
 }
 
 /* 1. العنوان والوصف (ينزلوا سوياً) */
