@@ -799,6 +799,25 @@ bottom: 100px;}
     margin-bottom: 30px;
     max-width: 450px;
 }
+/* تحديد ألوان مخصصة لكل h3 بناءً على ترتيبه */
+
+/* 1. Stamp Card */
+.tab-content-item:nth-child(1) h3 { color: #7E43FF; }
+
+/* 2. Cashback Card */
+.tab-content-item:nth-child(2) h3 { color: #F4577E; }
+
+/* 3. Discount Card */
+.tab-content-item:nth-child(3) h3 { color: #F79F9E; }
+
+/* 4. Prepaid Card */
+.tab-content-item:nth-child(4) h3 { color: #F6982B; }
+
+/* 5. Point Card */
+.tab-content-item:nth-child(5) h3 { color: #95E8D9; }
+
+/* 6. Subscription Card */
+.tab-content-item:nth-child(6) h3 { color: #A6CEFF; }
 
 /* زر TRY A DEMO السفلي */
 .btn-tab-demo {
