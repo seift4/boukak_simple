@@ -1,0 +1,3654 @@
+/* إعدادات الخطوط والعناصر الأساسية */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+:root {
+  --bg-color: #FFFFFF;
+  --bg-c:#F3F6F8;
+  --text-color: #121224;
+}
+
+.dark-mode {
+  --bg-color: #121224;
+  --bg-c:#231A47;
+  --text-color: #ffffff;
+}
+
+
+
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+
+}
+
+body {
+    background-color: var(--bg-color);
+}
+
+.theme-toggle-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 9999;
+    
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    border: 2px solid #6c63ff; /* اللون البنفسجي للبوردر */
+    background-color: #ffffff;  /* أبيض خالص في اللايت مود */
+    padding: 0;
+}
+
+/* الأيقونة في وضع اللايت (البنفسجي) */
+#toggleIcon {
+    width: 24px;
+    height: 24px;
+    filter: invert(38%) sepia(93%) saturate(5437%) hue-rotate(240deg) brightness(90%) contrast(105%); /* تحويل الأيقونة للبنفسجي */
+    transition: all 0.4s ease;
+}
+
+/* --- الوضع المظلم (Dark Mode) --- */
+.dark-mode .theme-toggle-btn {
+    background-color: #11121a48; /* كحلي غامق */
+    border-color: #1811a6;     /* البوردر يبقى بنفسجي */
+}
+
+.dark-mode #toggleIcon {
+    /* تحويل الأيقونة للذهبي */
+    filter: invert(82%) sepia(50%) saturate(748%) hue-rotate(357deg) brightness(103%) contrast(103%);
+}
+
+/* إضافة تأثير بسيط عند التحويل */
+.theme-toggle-btn:hover {
+    transform: scale(1.1) rotate(20deg);
+}
+
+
+
+
+.navbar {
+    background-color: rgba(17, 17, 34, 0.301); 
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px); 
+    border-radius: 12px;
+    padding: 12px 32px; /* زيادة الـ padding الجانبي الداخلي لراحة العناصر */
+    
+/* 🌟 المقاس المتوسط والذكي (العرض المثالي المتزن) 🌟 */
+    max-width: 1400px; 
+    width: calc(100% - 40px); /* يضمن وجود مسافة أمان ناعمة يمين ويسار الشاشة */
+    position: fixed;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%); 
+    z-index: 99999 !important;
+    box-sizing: border-box;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+}
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* تنسيق اللوجو */
+.logo img {
+    height: 45px; /* تحكم في حجم اللوجو من هنا */
+    display: block;
+}
+
+.nav-menu-wrapper {
+    display: flex;
+    justify-content: space-between; /* يخلي الروابط في النص والأزرار في أقصى اليمين */
+    align-items: center;
+    flex-grow: 1; /* ياخذ باقي مساحة الناف */
+    margin-left: 40px; /* مسافة بين اللوجو وبداية الروابط */
+}
+
+/* عشان تجبر الروابط تكون في المنتصف تماماً */
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 30px;
+    flex-grow: 1; /* تجعل الروابط تأخذ المساحة المتاحة */
+    justify-content: center; /* العنصر السحري اللي بيخلي الروابط في نص الناف */
+}
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-links a:hover {
+    color: #a855f7;
+}
+
+.arrow-icon {
+    font-size: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* الـ Dropdown Menu في الشاشات الكبيرة */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #e9ecef; /* اللون الرمادي الفاتح للقائمة المنسدلة بالصورة */
+    border-radius: 8px;
+    list-style: none;
+    min-width: 180px;
+    padding: 10px 0;
+    margin-top: 15px;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.dropdown-menu a {
+    color: #111122 !important;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    display: block;
+}
+
+.dropdown-menu a:hover {
+    background-color: #dee2e6;
+    color: #000 !important;
+}
+
+/* إظهار الـ Dropdown عند تمرير الماوس (Desktop) */
+@media (min-width: 992px) {
+    .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    .dropdown:hover .arrow-icon {
+        transform: rotate(180deg);
+    }
+}
+
+/* تنسيق الأزرار */
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn {
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-login {
+    background-color: #b8bfc6;
+    color: #111122;
+}
+
+.btn-login:hover {
+    background-color: #a2aab2;
+}
+
+.btn-contact {
+    background-color: #6d28d9; /* اللون البنفسجي للزر */
+    color: #ffffff;
+}
+
+.btn-contact:hover {
+    background-color: #5b21b6;
+}
+
+/* زر الموبايل الافتراضي (مخفي في الشاشات الكبيرة) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* ------------------------------------------- */
+/* شاشات الموبايل (Responsive - أقصى عرض 991px) */
+/* ------------------------------------------- */
+@media (max-width: 991px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    /* تحويل القائمة بالكامل لتصبح رأسية ومنسدلة لأسفل الـ Nav */
+    .nav-menu-wrapper {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #111122;
+        margin-left: 0;
+        margin-top: 10px;
+        border-radius: 12px;
+        padding: 20px;
+        flex-direction: column;
+        gap: 20px;
+        display: none; /* مخفي افتراضياً ويفتح بالـ JS */
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    /* الفئة التي سيتم إضافتها عبر الجافاسكريبت لفتح قائمة الموبايل */
+    .nav-menu-wrapper.active {
+        display: flex;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        justify-content: center;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    /* تعديل الـ Dropdowns لتناسب شكل الموبايل الرأسي في الصورة الثانية */
+    .dropdown-menu {
+        position: relative;
+        top: 0;
+        background-color: transparent;
+        box-shadow: none;
+        width: 100%;
+        margin-top: 5px;
+        padding: 0;
+        display: none; /* تفتح عند الضغط في الموبايل */
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+
+    .dropdown-menu a {
+        color: #a0aec0 !important; /* لون رمادي خفيف للنصوص الداخلية بالموبايل */
+        text-align: center;
+        padding: 8px 0;
+    }
+
+    .dropdown.open .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown.open .arrow-icon {
+        transform: rotate(180deg);
+    }
+
+    .nav-buttons {
+        flex-direction: column;
+        width: 100%;
+        border-top: 1px solid #2d2d44;
+        padding-top: 15px;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+
+
+/* ==========================================
+   Premium Hero Section Styling
+============================================= */
+
+.hero-premium-section {
+    width: 100%;
+    min-height: 100vh;
+    /* خلفية متدرجة انسيابية فخمة مستوحاة من ألوان البراند البنفسجية والزرقاء الداكنة */
+   background-image: url('img/BG1.png');
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+  
+    padding: 80px 0 0 0;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+}
+
+.hero-premium-section .container {
+    width: 100%;    
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    
+}
+
+/* ----------------------------------------------------
+   الجزء العلوي (الهيدر والنصوص)
+   ---------------------------------------------------- */
+.hero-top-content {
+    position: relative;
+    top: 60px;
+    text-align: center;
+    z-index: 10;
+}
+
+.hero-top-content h1 {
+    font-size: 52px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.25;
+    margin: 0 0 20px 0;
+    letter-spacing: -1px;
+}
+
+
+.hero-subtitle {
+    font-size: 18px;
+    color: #f0f0f1;
+    max-width: 620px;
+    margin: 0 auto 35px auto;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* أزرار الاتصال والتجربة */
+.hero-action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.btn-hero-dark {
+    background-color: #11121a;
+    color: #ffffff;
+    padding: 14px 32px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.btn-hero-dark:hover {
+    background-color: #1f212e;
+    transform: translateY(-2px);
+}
+
+.btn-hero-white {
+    background-color: #ffffff;
+    color: #11121a;
+    padding: 14px 32px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(255,255,255,0.1);
+}
+
+.btn-hero-white:hover {
+    background-color: #f8fafc;
+    transform: translateY(-2px);
+}
+
+/* ----------------------------------------------------
+   الجزء السفلي (استعراض المحتوى والدمج البصري)
+   ---------------------------------------------------- */
+.hero-bottom-showcase {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* لارتكاز الموبايل والأعمدة على الأرضية السفلية للموقع */
+    width: 100%;
+    margin-top: auto;
+    position: relative;
+}
+
+/* الأطراف الجانبية (يمين ويسار) */
+.hero-showcase-side {
+    flex: 1;
+    padding-bottom: 40px; /* لرفع الأيقونات الجانبية قليلاً ومحاذاة منتصف الهاتف */
+    z-index: 5;
+}
+
+.left-side {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.right-side {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* كارت الثقة السعودي */
+.brand-trust-badge {
+margin-left: 60px;
+position: relative;
+top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.saudi-badge-img {
+    height: 95px;
+}
+
+.trust-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.trust-title {
+    font-size: 13px;
+    margin: 0;
+}
+
+.trust-count {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* حاوية شارات المحافظ الإلكترونية */
+.wallet-badges-container {
+    margin-right: 60px;
+    display: flex;
+    gap: 12px;
+}
+
+.wallet-badge-link img {
+    height: 40px;
+    width: auto;
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.wallet-badge-link img:hover {
+    transform: scale(1.04);
+}
+
+/* ----------------------------------------------------
+   هندسة الدمج الثلاثي الأبعاد (الموبايل والكروت)
+   ---------------------------------------------------- */
+.hero-showcase-center {
+    position: relative;
+    width: 100%;
+    max-width: 750px; /* كبرنا الحاوية من 580px لـ 720px عشان تستوعب الحجم الجديد */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    transform: scale(2);
+    position: relative;
+
+bottom: 240px;}
+
+.phone-cards-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/* الكروت في الخلفية - بتكبر تلقائياً مع حجم الحاوية الجديد */
+.hero-cards-back {
+    position: absolute;
+    bottom: 0;
+    width: 100%; 
+    height: auto;
+    z-index: 1; 
+    pointer-events: none;
+}
+
+/* الهاتف في الأمام - كبرناه هنا بشكل حقيقي وآمن */
+.hero-phone-front {
+    position: relative;
+    width: 320px; /* كبرنا العرض من 250px لـ 320px عشان يظهر ضخم وواضح */
+    height: auto;
+    z-index: 2; 
+    display: block;
+    margin: 0 auto;
+    /* لو حابب تدي لقطة أنيميشن ناعمة أول ما الموقع يفتح (اختياري) */
+    transition: transform 0.3s ease;
+}
+
+/* ==========================================
+   التجاوب الذكي والشامل مع الشاشات (Responsive)
+============================================= */
+
+@media (max-width: 1024px) {
+    .hero-top-content h1 { font-size: 42px; }
+    .hero-phone-front { width: 210px; }
+    .hero-showcase-center { max-width: 480px; }
+}
+
+@media (max-width: 768px) {
+    .hero-premium-section { padding-top: 60px; }
+    .hero-top-content h1 { font-size: 32px; }
+    .hero-subtitle { font-size: 15px; padding: 0 15px; }
+    
+    /* تحويل السيكشن السفلي لعمودي منظم على الهواتف */
+    .hero-bottom-showcase {
+        flex-direction: column;
+        align-items: center;
+        gap: 35px;
+    }
+    
+    .hero-showcase-side {
+        flex: none;
+        padding-bottom: 0;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .wallet-badges-container {
+        flex-direction: row; /* جعل الشارات أفقية بجانب بعضها في الموبايل */
+        gap: 16px;
+    }
+    
+    .hero-showcase-center {
+        max-width: 100%;
+        order: -1; /* رفع الموبايل ليكون فوق الشارات وكارت الثقة في الموبايل */
+    }
+    
+    .hero-phone-front { width: 180px; }
+}
+@media (max-width: 450px) {
+.hero-showcase-center {
+    position: relative;
+    width: 100%;
+    max-width: 750px; /* كبرنا الحاوية من 580px لـ 720px عشان تستوعب الحجم الجديد */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    transform: scale(2);
+    position: relative;
+
+bottom: 100px;}
+
+.left-side {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    right: 90px;
+    bottom: 32px;
+    transform: scale(.8);
+}
+
+.right-side {
+    display: flex;
+    justify-content: flex-end;
+        position: relative;
+    left: 130px;
+    bottom: 115px;
+    transform: scale(.5);
+}
+
+}
+
+/* 1. العنوان والوصف (ينزلوا سوياً) */
+.hero-top-content h1, .hero-subtitle {
+    animation: dropDown 0.7s ease-out forwards;
+}
+
+/* 2. الأزرار (تظهر بعد النص بلمحة) */
+.hero-action-buttons {
+    animation: dropDown 0.8s ease-out 0.5s forwards;
+    opacity: 0;
+}
+
+/* 3. الجزء السفلي (الهاتف والكروت والأيقونات تطلع من تحت) */
+.hero-bottom-showcase {
+    animation: slideUp 1s ease-out 0.4s forwards;
+    opacity: 0;
+}
+.hero-premium-section * {
+    will-change: transform, opacity; /* تحسين أداء الحركة للمتصفح */
+}
+
+/* لجعل الهاتف يبدو وكأنه يطفو قليلاً (Float Effect) */
+.hero-showcase-center {
+    transition: transform 0.3s ease;
+}
+.hero-showcase-center:hover {
+    transform: scale(2.05) translateY(-10px); /* تفاعل خفيف عند الماوس */
+}
+
+/* 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+
+
+/* Card Type Section Styles */
+.card-type-section {
+    width: 100%;
+    height: 100vh;
+    padding: 120px 0;
+    background-color: var(--bg-color); /* خلفية فاتحة وممتازة للفصل بين السيكشنز */
+    color: #1e293b;
+    font-family: sans-serif;
+}
+
+.card-type-section .container {
+
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    margin-top: 60px;
+}
+
+/* هيدر السيكشن */
+.sectionn-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.sectionn-header h2 {
+    font-size: 38px;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.sectionn-header h2 span {
+   
+    color: #7c3aed; /* الكلمة الملوّنة بالبنفسجي */
+}
+
+.sectionn-header p {
+    font-size: 16px;
+    color: var(--text-color);
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* حاوية الأزرار التبادلية */
+.tabs-buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* لتوزيع الأزرار في سطر جديد لو حجم الشاشة صغير */
+    gap: 12px;
+    margin-bottom: 60px;
+}
+
+/* تصميم الأزرار الافتراضي */
+.tab-btn {
+    padding: 10px 24px;
+    background-color: #e2e8f0;
+    color: #475569;
+    border: none;
+    border-radius: 30px; /* شكل بيضاوي رائع كالتصميم */
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    background-color: #cbd5e1;
+}
+
+/* الزرار النشط (المحدد حالياً) */
+.tab-btn.active {
+    background-color: #7c3aed;
+    color: white;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+}
+
+/* منطقة المحتوى المتبدل */
+.tab-content-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+/* حالة المحتويات الافتراضية مخفية */
+.tab-content-item {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    width: 100%;
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+/* يظهر المحتوى فقط عندما يحمل كلاس active */
+.tab-content-item.active {
+    display: flex;
+}
+
+/* الجانب النصي */
+.tab-text-side {
+    flex: 1;
+    text-align: left;
+}
+
+.tab-text-side h3 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.tab-text-side p {
+    font-size: 16px;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 450px;
+}
+
+/* زر TRY A DEMO السفلي */
+.btn-tab-demo {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: var(--bg-c);
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.btn-tab-demo:hover {
+    background-color: var(--text-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    color: var(--bg-c);
+}
+
+/* الجانب الصوري للكارت */
+.tab-image-side {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.tab-image-side img {
+    width: 280px; /* حجم الكروت ليكون بارز وواضح */
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+/* أنيميشن ناعم لتبديل البيانات */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive التجاوب مع الموبايل */
+@media (max-width: 768px) {
+    .card-type-section {
+        padding: 50px 0;
+    }
+    .section-header h2 { font-size: 30px; }
+    
+    .tabs-buttons-container {
+        gap: 8px;
+        margin-bottom: 40px;
+    }
+    .tab-btn {
+        padding: 8px 18px;
+        font-size: 13px;
+    }
+
+    .tab-content-item {
+        flex-direction: column-reverse; /* الصورة تطلع فوق النص في الموبايل لترتيب منسق */
+        gap: 30px;
+        text-align: center;
+    }
+    .tab-text-side {
+        text-align: center;
+    }
+    .tab-text-side p {
+        margin: 0 auto 25px;
+    }
+    .tab-image-side {
+        justify-content: center;
+    }
+    .tab-image-side img {
+        width: 220px;
+    }
+}
+
+/* الهيدر ينزل من فوق */
+@keyframes dropDown {
+    from { opacity: 0; transform: translateY(-40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* المحتوى السفلي يطلع من تحت */
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 450px) {
+
+.card-type-section {
+    width: 100%;
+    height: 140vh;
+    padding: 120px 0;
+    background-color: var(--bg-color); /* خلفية فاتحة وممتازة للفصل بين السيكشنز */
+    color: #1e293b;
+    font-family: sans-serif;
+}
+}
+
+
+
+
+
+
+
+
+
+/* سيكشن تصميم الكارت */
+.design-card-section {
+    width: 100%;
+    padding: 80px 0 60px;
+    background-color: var(--bg-c);
+    color: #1e293b;
+    text-align: center;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.design-card-section .container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0px 60px;
+    padding-top: 60px;
+
+}
+
+/* أزرار التبويبات العلوية */
+.design-tabs-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.design-tab-btn {
+    padding: 10px 24px;
+    background-color: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* هيدر السيكشن */
+.section-headerr {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-headerr h2 {
+    font-size: 38px;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.section-headerr h2 span {
+  
+    color: #7c3aed; /* الكلمة الملوّنة بالبنفسجي */
+}
+
+.section-headerr p {
+    font-size: 16px;
+    color: var(--text-color);
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+
+.design-tab-btn.active {
+    background-color: #7c3aed;
+    color: white;
+    border-color: #7c3aed;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
+}
+
+/* حاوية العرض المركزية */
+.design-showcase-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 450px; /* طول مناسب لحركة الكروت والموبايل */
+
+}
+
+/* هيكل الموبايل الثابت في المركز */
+.design-phone-container {
+    position: relative;
+    width: 220px;
+    z-index: 10; /* دايماً فوق الكروت الجانبية لتبدو الكروت خلفه أو داخله */
+    pointer-events: none;
+}
+
+.design-iphone-frame {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* الكارت العائم الداخلي للموبايل */
+.design-overlay-card {
+    position: absolute;
+    top: 92px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 67%;
+    border-radius: 12px;
+    z-index: 11;
+    transition: opacity 0.4s ease;
+}
+
+/* تصميم الكروت المتسلسلة حول الهاتف */
+.carousel-card {
+    position: absolute;
+    width: 135px;
+    height: auto;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    cursor: pointer;
+    /* الأنيميشن السلس والمسؤول عن زق وإزاحة الكروت يمين وشمال */
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease, z-index 0.5s;
+}
+
+/* تعريف توزيع الأماكن الـ 5 للكروت في السلسلة (تتحرك ديناميكياً بالـ JS) */
+
+/* كارت أقصى اليسار */
+.carousel-card.pos-1 {
+    transform: translateX(-320px) scale(0.9) ;
+    z-index: 2;
+    opacity: 0.7;
+}
+
+/* كارت اليسار القريب */
+.carousel-card.pos-2 {
+    transform: translateX(-180px) scale(0.95) ;
+    z-index: 4;
+    opacity: 0.95;
+}
+
+/* الكارت النشط حالياً (المستقر خلف شاشة التليفون ومستنسخ داخله) */
+.carousel-card.pos-active {
+    transform: translateX(0) ;
+    z-index: 1; /* يختفي وراء جسم الموبايل لأن الموبايل z-index: 10 */
+    opacity: 0; /* نخفيه تماماً لأن صورته تظهر بوضوح عبر الـ Overlay الداخلي */
+}
+
+/* كارت اليمين القريب */
+.carousel-card.pos-4 {
+    transform: translateX(180px) scale(0.95) ;
+    z-index: 4;
+    opacity: 0.95;
+}
+
+/* كارت أقصى اليمين */
+.carousel-card.pos-5 {
+    transform: translateX(320px) scale(0.9);
+    z-index: 2;
+    opacity: 0.7;
+}
+
+/* النقاط السفلية */
+.design-bullets {
+    position: relative;
+    bottom: 45px;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+.design-bullets .bullet {
+    width: 8px;
+    height: 8px;
+    background-color: var(--text-color);
+    border-radius: 50%;
+    transition: 0.3s;
+}
+.design-bullets .bullet.active {
+    background-color: #6d28d9;
+    width: 20px;
+    border-radius: 4px;
+}
+
+/* التجاوب مع الجوال */
+@media (max-width: 768px) {
+    .design-showcase-wrapper { height: 320px; }
+    .design-phone-container { width: 140px; }
+    .design-overlay-card { top: 7px; }
+    .carousel-card { width: 75px; border-radius: 8px; }
+    .carousel-card.pos-1 { transform: translateX(-130px) scale(0.85); }
+    .carousel-card.pos-2 { transform: translateX(-85px) scale(0.9); }
+    .carousel-card.pos-4 { transform: translateX(85px) scale(0.9); }
+    .carousel-card.pos-5 { transform: translateX(130px) scale(0.85); }
+}
+/* الحاوية الثابتة الموحدة للصور والزجاج */
+.image-showcase-container {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+/* الكارت الفعلي الملوّن */
+.main-card-img {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 28px;
+}
+
+/* الخصائص الأساسية المشتركة للقطع الزجاجية الملونة ديناميكياً */
+.glass-shape {
+    position: absolute;
+    width: 110px;       
+    height: 42px;       
+    border-radius: 14px; 
+    
+    /* 🔥 سر الصنعة: قراءة درجة الـ RGB الممررة وتطبيقها كخلفية زجاجية ملوّنة وشفافة بنسبة 25% */
+    background: rgba(var(--glass-color), 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    
+    /* جعل حافة القطعة تأخذ نفس درجة اللون ولكن بوضوح أعلى ليظهر بريق الزجاج */
+    border: 1px solid rgba(var(--glass-color), 0.45);
+    box-shadow: 0 8px 24px rgba(var(--glass-color), 0.08);
+    pointer-events: none; 
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* 1. القطعة الزجاجية العلوية (خلف الكارت من جهة اليسار) */
+.glass-top-left {
+    top: 20%;
+    left: -40px;
+    z-index: 3;
+}
+
+/* 2. القطعة الزجاجية السفلية (أمام الكارت من جهة اليمين) */
+.glass-bottom-right {
+    bottom: 8%;
+    right: -25px;
+    z-index: 7;
+}
+
+/* ----------------------------------------------------
+   التجاوب السلس مع شاشات الموبايل (Responsive)
+   ---------------------------------------------------- */
+@media (max-width: 768px) {
+    .image-showcase-container {
+        max-width: 240px;
+    }
+    .glass-shape {
+        width: 80px;
+        height: 30px;
+        border-radius: 8px;
+    }
+    .glass-top-left {
+        left: -25px;
+        top: 22%;
+    }
+    .glass-bottom-right {
+        right: -15px;
+        bottom: 10%;
+    }
+}
+
+
+@media (max-width: 450px) {
+
+    .design-card-section {
+        padding-top: 0;
+    }
+
+.design-overlay-card {
+    position: absolute;
+    top: 54px;
+    left: 50%;
+}
+/* حاوية العرض المركزية */
+.design-showcase-wrapper {
+    position: relative;
+    bottom: 49px;
+ 
+}
+/* النقاط السفلية */
+.design-bullets {
+    position: relative;
+    bottom: 90px;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* سيكشن كيف يعمل للمستخدمين */
+.how-it-works-section {
+    width: 100%;
+    padding: 80px 0;
+    background-color: var(--bg-color);
+    text-align: center;
+}
+
+.how-it-works-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* تنسيق الهيدر */
+.how-it-works-section .section-header h2 {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--text-color);
+    margin-bottom: 12px;
+}
+
+.how-it-works-section .sectionn-header h2 span {
+    color: #7c3aed; /* اللون الموف الأساسي */
+    display: block;
+}
+
+.how-it-works-section .sectionn-header p {
+    font-size: 16px;
+    width: 40%;
+    color: var(--text-color);
+    margin-bottom: 50px;
+}
+
+/* ==========================================
+   نظام التمدد والتحول الزجاجي الديناميكي (بدون تكرار)
+============================================= */
+
+.steps-grid-container {
+    display: flex;
+    width: 100%;
+    gap: 16px;
+}
+
+.step-card {
+    position: relative;
+    height: 420px;
+    flex: 1; 
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: flex 0.5s cubic-bezier(0.25, 1, 0.5, 1), transform 0.4s ease;
+}
+
+/* الحاوية الافتراضية: تغطي الكارت بالكامل بلون موف شفاف */
+.step-dynamic-content {
+    position: absolute;
+    /* الحالة الافتراضية: تملأ الكارت بالكامل */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+/* دمج لوني انسيابي: من الأسود الشفاف فوق إلى البنفسجي الشفاف تحت */
+background: linear-gradient(to bottom, rgba(15, 15, 26, 0.792) 0%, rgba(124, 58, 237, 0.819) 100%);
+      display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 30px 24px;
+    box-sizing: border-box;
+    text-align: left;
+    
+    /* أنيميشن ناعم جداً لكل الخصائص عند التحول */
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 2;
+}
+
+/* الرقم الافتراضي (كبير وشفاف) */
+.step-number {
+    font-size: 48px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.35);
+    line-height: 1;
+    transition: all 0.4s ease;
+}
+
+/* العنوان الافتراضي (في الأسفل) */
+.step-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: auto 0 0 0; /* يدفعه لأسفل الحاوية افتراضياً */
+    line-height: 1.3;
+    transition: all 0.4s ease;
+}
+
+/* نص الوصف (مخفي ومتقلص تماماً في البداية) */
+.step-description {
+    max-height: 0;
+    opacity: 0;
+    margin: 0;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.4;
+    font-weight: 400;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease, margin-top 0.4s ease;
+}
+
+/* ----------------------------------------------------
+   سحر الـ Hover: تحويل الحاوية الموف إلى بوكس زجاجي سفلي
+   ---------------------------------------------------- */
+
+/* 1. الكارت النشط أو الذي نقف عليه يتمدد ويظهر صورته */
+.step-card:hover{
+    flex: 2.2;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* 2. تحول الحاوية الموف إلى بوكس زجاجي سفلي */
+.step-card:hover .step-dynamic-content,
+.step-card.active .step-dynamic-content {
+    top: auto;
+    bottom: 15px; left: 15px; right: 15px;
+    height: auto;
+    background: rgba(255, 255, 255, 0.15); 
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 16px;
+    padding: 20px;
+    justify-content: flex-start;
+}
+
+/* 3. تصغير الرقم */
+.step-card:hover .step-number,
+.step-card.active .step-number {
+    font-size: 13px;
+    color: #a78bfa;
+    margin-bottom: 2px;
+}
+
+/* 4. تعديل مكان العنوان */
+.step-card:hover .step-title,
+.step-card.active .step-title {
+    font-size: 18px;
+    margin: 0 0 6px 0;
+}
+
+/* 5. إظهار نص الوصف بوضوح */
+.step-card:hover .step-description,
+.step-card.active .step-description {
+    max-height: 80px;
+    opacity: 1;
+    margin-top: 4px;
+}
+
+/* ==========================================
+   Responsive (التجاوب الصارم)
+============================================= */
+@media (max-width: 992px) {
+    .steps-grid-container { flex-wrap: wrap; }
+    .step-card { flex: 1 1 calc(50% - 16px); height: 380px; }
+    .step-card:hover { flex: 1 1 calc(50% - 16px); }
+}
+@media (max-width: 600px) {
+    .step-card { flex: 1 1 100%; height: 340px; }
+    .step-card:hover { flex: 1 1 100%; }
+}
+/* الأزرار البيضاوية السفلية */
+.steps-badges {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 40px;
+    background-color: var(--bg-color);
+}
+
+.badge-btn {
+    padding: 10px 24px;
+    border: 1px solid var(--text-color);
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-color);
+    background: transparent;
+}
+
+/* التجاوب الذكي مع الشاشات اللوحية والموبايل (Responsive) */
+@media (max-width: 992px) {
+    .steps-grid-container {
+        grid-template-columns: repeat(2, 1fr); /* كارتين في كل صف على التابلت */
+    }
+}
+
+@media (max-width: 576px) {
+    .steps-grid-container {
+        grid-template-columns: 1fr; /* كارت واحد في كل صف على الشاشات الصغيرة */
+    }
+    .step-card {
+        height: 300px;
+    }
+    .steps-badges {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+
+@media (max-width: 450px) {
+   .how-it-works-section .sectionn-header{
+        position: sticky;
+        top: 90px;
+    }
+.how-it-works-section .sectionn-header p {
+    font-size: 15px;
+    width: 100%;
+    color: var(--text-color);
+    margin-bottom: 50px;
+}
+
+.step-card {
+    margin-top: 0;
+    height: 480px;   
+    position: sticky;
+    top: 280px;   
+}
+/* الأزرار البيضاوية السفلية */
+.steps-badges {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    background-color: var(--bg-color);
+    margin-top:0 ;
+    padding-top: 40px;
+}
+.badge-btn{
+    font-size: 11.5px;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* سيكشن لوحة التحكم */
+.dashboard-section {
+    height: 100vh;
+    width: 100%;
+    padding: 80px 0;
+    background-color: var(--bg-c); /* خلفية فاتحة هادئة تبرز لوحة التحكم */
+    text-align: center;
+}
+
+.dashboard-section .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    padding-top: 50px;
+}
+
+/* الهيدر العلوي */
+.dashboard-header h2 {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--text-color);
+    letter-spacing: -0.5px;
+}
+/* الهيدر العلوي */
+.dashboard-header h1 {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--text-color);
+    letter-spacing: -0.5px;
+    display: block;
+}
+
+.dashboard-header h2 span {
+    color: #7c3aed; /* الموف المميز للبراند */
+}
+
+/* حاوية الصورة المركزية */
+.dashboard-image-wrapper {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 35px;
+}
+
+.dashboard-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* تأثير ظل ناعم جداً ومميز حول لوحة التحكم لإعطائها عمق احترافي */
+    filter: drop-shadow(0 20px 40px rgba(15, 23, 42, 0.08));
+}
+.dashboard-footer-content{
+    position: relative;
+    bottom: 90px;
+}
+/* نصوص الشرح السفلية */
+.dashboard-description {
+    font-size: 18px;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0 auto 35px;
+    font-weight: 500;
+}
+
+/* بادجات الميزات السفلية مع علامة الصح */
+.dashboard-features-badges {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.featuree-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    background-color: transparent;
+    border: 1px solid #7c3aed;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    color: var(--text-color);
+}
+
+
+/* لون أيقونة الـ SVG (علامة الصح) */
+.featuree-badge svg {
+    color: #7c3aed;
+}
+
+/* حركة بسيطة تفاعلية عند مرور الماوس على البادجات */
+.featuree-badge:hover {
+    background-color: rgba(124, 58, 237, 0.05);
+    transform: translateY(-2px);
+    color: #000;
+}
+
+/* التجاوب والتكيف الكامل مع الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .dashboard-header h2 {
+        font-size: 30px;
+        margin-bottom: 25px;
+    }
+    .dashboard-description {
+        font-size: 15px;
+        padding: 0 10px;
+    }
+    .dashboard-features-badges {
+        gap: 8px;
+    }
+    .featuree-badge {
+        padding: 6px 14px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 450px){
+    
+/* الهيدر العلوي */
+.dashboard-header h2 {
+    font-size: 35px;
+    width: 100%;
+    font-weight: 800;
+    color: var(--text-color);
+    letter-spacing: -0.5px;
+    
+}
+/* الهيدر العلوي */
+.dashboard-header h1 {
+    font-size: 35px;
+    width: 100%;
+    font-weight: 800;
+    color: var(--text-color);
+    letter-spacing: -0.5px;
+    display: inline;
+    position: relative;
+    bottom: 12px;
+}
+
+.dashboard-header h2 span {
+    color: #7c3aed; /* الموف المميز للبراند */
+}
+.dashboard-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* تأثير ظل ناعم جداً ومميز حول لوحة التحكم لإعطائها عمق احترافي */
+    filter: drop-shadow(0 20px 40px rgba(15, 23, 42, 0.08));
+}
+.dashboard-footer-content{
+    position: relative;
+    bottom: 40px;
+    width: 100%;
+}
+.dashboard-description{
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: start ;
+}
+.dashboard-features-badges {
+    width: 100%;
+        gap: 10px; /* تقليل المسافة قليلاً للموبايل */
+    }
+
+    .featuree-badge {
+        /* حساب العرض ليكون عنصرين في الصف */
+        /* نطرح الـ gap (10px) من عرض الـ 50% لنضمن عدم نزول العنصر للسطر التالي */
+        width: calc(50% - 5px); 
+        
+        /* جعل المحتوى داخل البادج في المنتصف */
+        justify-content: center; 
+        
+        /* التأكد من أن النص لا ينكسر بشكل سيء */
+        white-space: nowrap;
+    font-size: 11.5px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   Smart System for Customer Loyalty Section
+============================================= */
+
+.features-section {
+    height: 100vh;
+    width: 100%;
+    padding: 100px 0;
+    background-color: var(--bg-color); /* خلفية فاتحة ومريحة تبرز ألوان الموبايلات */
+    font-family: 'Inter', sans-serif; /* أو الخط المستخدم في مشروعك */
+    box-sizing: border-box;
+}
+
+/* النصوص العلوية */
+.header-container {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 80px; /* مسافة مريحة قبل الكروت */
+    padding: 0 20px;
+}
+
+.header-container h1 {
+        font-size: 38px;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+.header-container h1 .highlight {
+    display: block;
+    color: #7c3aed; /* اللون الموف المعتمد للبراند */
+}
+
+.header-container .subtitle {
+    font-size: 18px;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+/* ==========================================
+   Smart System for Customer Loyalty Section (BIGGER VERSION)
+============================================= */
+
+/* حاوية الكروت الأربعة الأساسية */
+.cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; 
+    gap: 32px; /* زودنا المسافة بين الكروت لتتناسب مع الحجم الأكبر */
+    max-width: 1540px; /* كبرنا الحاوية الإجمالية من 1440px لـ 1540px */
+    margin: 0 auto;
+    padding: 0 40px; /* زيادة الهامش الجانبي */
+}
+
+/* التصميم الأساسي للكارت الموحد */
+.card {
+    flex: 1;
+    background: transparent; 
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    /* تحديد حد أدنى لعرض الكارت عشان نضمن إنه يفضل كبير ومفرود */
+    min-width: 260px; 
+}
+
+/* حاوية الموبايل (الخلفية اللطيفة المضيئة خلف كل موبايل) */
+.card .image-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px; /* زيادة المسافة بين الموبايل والكلام */
+}
+
+/* تأثير الظل الأزرق الفاتح خلف الهواتف كما في التصميم */
+.card .image-wrapper::before {
+    content: '';
+    position: absolute;
+    bottom: 15px;
+    width: 80%; /* كبرنا العرض من 65% لـ 80% عشان يفرش تحت الموبايل الكبير */
+    height: 38%; /* كبرنا الارتفاع من 50% لـ 75% */
+    background: #CDE1FA;
+    border-radius: 20px; /* زيادة انحناء الزوايا ليتماشى مع الحجم */
+    z-index: 1;
+}
+
+.card .image-wrapper img {
+    width: 100%; /* جعل الصورة تأخذ العرض الكامل المتاح لها لتكبر */
+    max-width: 290px; /* كبرنا الحد الأقصى للموبايل نفسه ليظهر ضخم وواضح */
+    height: auto;
+    position: relative;
+    z-index: 2;
+    display: block;
+    transition: .5s;
+}
+
+/* عناوين الكروت السفليّة */
+.card h3 {
+    font-size: 26px; /* كبرنا الخط من 22px لـ 26px */
+    font-weight: 700;
+        color: #7c3aed; /* اللون الموف المعتمد للبراند */
+
+    margin: 0 0 12px 0;
+}
+
+/* نصوص الشرح تحت الموبايلات */
+.card p {
+    font-size: 16px; /* كبرنا خط الشرح من 14px لـ 16px */
+    color: var(--text-color);
+    line-height: 1.6; /* زيادة تباعد الأسطر لراحة العين */
+    margin: 0;
+    max-width: 290px; /* كبرنا عرض النص من 250px لـ 290px عشان يفرش براحته تحت العنوان */
+}
+
+/* ==========================================
+   الميكانيكا الحركية: رفع الكرتين في المنتصف لأعلى
+============================================= */
+.card.elevated {
+    /* رفع الكارتين بمقدار 50 بكسل (زيادة خفيفة لتتناسب مع الضخامة الجديدة) */
+    transform: translateY(-50px); 
+}
+
+/* حركة تفاعلية ناعمة (Hover Effect) للمستخدم عند مرور الماوس */
+.card:hover img{
+    transform: translateY(-15px);
+}
+
+/* بالنسبة للكروت المرتفعة أصلاً، عند الـ hover ترتفع زيادة بنعومة */
+
+
+/* ==========================================
+   التجاوب الذكي والشامل مع الشاشات (Responsive)
+============================================= */
+
+/* تابلت وشاشات متوسطة */
+@media (max-width: 1024px) {
+    .header-container h1 { font-size: 36px; }
+    .cards-container {
+        gap: 16px;
+    }
+    .card h3 { font-size: 19px; }
+}
+
+@media (max-width: 768px) {
+    .features-section {
+    height: 260vh;
+    width: 100%;
+    padding: 100px 0;
+    background-color: var(--bg-color); /* خلفية فاتحة ومريحة تبرز ألوان الموبايلات */
+    font-family: 'Inter', sans-serif; /* أو الخط المستخدم في مشروعك */
+    box-sizing: border-box;
+}
+.header-container {
+    margin: 0;
+}
+
+    /* تحويل الكروت من صف إلى عمود */
+    .cards-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 0px; /* مسافة مريحة بين الكروت في الموبايل */
+        padding: 0 20px;
+    }
+
+    /* إلغاء الرفع للأعلى في الموبايل لكي لا تتداخل الكروت */
+    .card.elevated {
+        transform: translateY(0);
+    }
+
+    /* ضبط عرض الكرت ليأخذ مساحة أكبر في الموبايل */
+    .card {
+        min-width: 100%;
+    }
+
+    /* تصغير حجم الصور قليلاً في الموبايل لتناسب الشاشات الصغيرة */
+    .card .image-wrapper img {
+        max-width: 220px;
+    }
+    
+    /* تصغير الخطوط في الموبايل لتناسب المساحة */
+    .header-container h1 {
+        font-size: 28px;
+    }
+    
+    .card h3 {
+        font-size: 22px;
+    }
+}
+
+
+
+
+
+
+/* ==========================================
+   Reach Your Customers - Perfect Sticky Split
+============================================= */
+/* 1. السيكشن الرئيسي */
+.reach-customers-section {
+    width: 100%;
+    padding: 60px 0 0 0; 
+    box-sizing: border-box;
+    position: relative;
+    /* تأكيد عدم وجود overflow هنا لكي يتحرك الكارت الأخير براحته لأعلى */
+    background-color: var(--bg-color);
+}
+
+
+.section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    padding: 0 24px;
+    background-color: var(--bg-color);
+    
+    /* نترك الـ sticky كما هو */
+    position: sticky;
+    top: 120px; 
+    z-index: 1; 
+    
+    /* إضافة transition ليتحرك بسلاسة عند تغير موقعه */
+    transition: transform 0.3s ease;
+}
+.section-header h2 {
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--text-color);
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+.section-header .purple-text {
+    color: #7c3aed;
+}
+
+.section-header .section-subtitle {
+    font-size: 16px;
+    color: var(--text-color);
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ----------------------------------------------------
+   حاوية الكروت المتراكمة
+   ---------------------------------------------------- */
+.cards-stack-container {
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0; 
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 60;
+}
+/* ----------------------------------------------------
+   🌟 الكروت: تتراكم في منتصف الشاشة 🌟
+   ---------------------------------------------------- */
+.stack-card {
+    position: sticky;
+    top: 360px; /* نقطة ارتكاز الكروت تحت الهيدر */
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 310px; /* زيادة الارتفاع قليلاً ليعطي براحاً فخماً للصورة والنصوص */
+    background-color: var(--bg-c);
+    border-radius: 32px;
+    padding: 0 0 0 100px; /* ترك اليمين 0 لكي تلتصق خلفية الموبايل بالطرف تماماً مثل الصورة */
+    box-sizing: border-box;
+    overflow: hidden;
+    z-index: 10; 
+ 
+                
+    /* مسافة السكرول بين الكروت */
+    margin-bottom: 300px; 
+}
+/* السيكشن الرئيسي */
+.reach-customers-section {
+    width: 100%;
+    padding: 60px 0 0 0; 
+    box-sizing: border-box;
+    position: relative;
+    /* 🚀 تأكد إن ما فيش overflow: hidden هنا عشان الكارت يقدر يخرج برا السيكشن ويغطي الهيدر لفوق */
+}
+/* 3. تعديل الكارت الأخير (البطل اللي هيقفل السيكشن ويخفي الهيدر في نفس مكانه) */
+/* الكارت الأخير */
+.stack-card:last-child {
+    /* رفع الـ z-index ليصبح أعلى من الهيدر (ز-اندكس الهيدر 1) */
+    z-index: 5; 
+    
+    /* 🚀 التعديل الأهم: margin-bottom بالسالب 
+       هذا سيجبر المتصفح على "سحب" الحاوية لأعلى بمجرد ظهور الكارت الأخير، 
+       وبما أن الهيدر داخل الحاوية، سيضطر للتحرك مع الكارت */
+    margin-bottom: -150px; 
+    
+    /* تفعيل التحويل ليتحرك فوق الهيدر */
+    position: relative;
+}
+/* 4. الـ Spacer السحري: تم وزنه ليعطي المتصفح المساحة الكافية لإنهاء الاسكرول */
+.stack-spacer {
+position: sticky;
+    top: 0; /* يبدأ من أول الشاشة */
+    z-index: 2; /* أعلى من الكروت (كانت 100) ليغطي عليها */
+    background-color: var(--bg-color); /* يجب أن يكون له خلفية ليغطي ما تحته */
+    width: 100%;
+    min-height: 40vh; /* أو الارتفاع الذي تريده */
+}
+/* ----------------------------------------------------
+   تنسيق المحتوى الداخلي للكروت (مطابق للصورة بالملي)
+   ---------------------------------------------------- */
+.text-content {
+    flex: 1.2;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* محاذاة صارمة لليسار */
+    text-align: left;
+}
+
+.icon-wrapper {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 24px; /* مسافة مريحة تحت الأيقونة */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-wrapper svg {
+    width: 44px; /* حجم الأيقونة النحيفة مطابق للصورة */
+    height: 44px;
+}
+
+.text-content h3 {
+    font-size: 34px; /* حجم الخط العصري للعناوين */
+    font-weight: 800;
+    color: #7c3aed; /* البنفسجي الصريح */
+    margin: 0 0 16px 0;
+    letter-spacing: -0.5px;
+}
+
+.text-content p {
+    font-size: 18px; /* حجم الوصف المريح للقراءة */
+    color: var(--text-color); /* اللون الرمادي الاحترافي للنصوص */
+    line-height: 1.6;
+    margin: 0;
+    max-width: 490px; /* منع النص من الاستطالة ليتطابق مع أبعاد الصورة */
+}
+
+/* حاوية الصورة لتبدو غاطسة ومقطوعة من الأسفل */
+.image-content {
+    flex: 0.8;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end; /* جعل الموبايل يرتكز ويخرج من القاع */
+    position: relative;
+}
+
+/* ----------------------------------------------------
+   تنسيق الصورة في الحالة العادية (نصف التليفون فقط باين)
+   ---------------------------------------------------- */
+.image-content img {
+    transform: scale(1.9);
+    height: 140%; /* الحجم الافتراضي الممتاز */
+    width: auto;
+    object-fit: contain;
+    display: block;
+    
+    /* 🚀 السر هنا: تنزيل التليفون لتحت بمقدار 55% لكي يختفي نصفه السفلي تماماً تحت حافة الكارت */
+    transform: translateY(35%); 
+    
+    /* إضافة تأثير حركي فخم وناعم جداً يستغرق نصف ثانية عند الصعود والنزول */
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); 
+}
+
+/* ----------------------------------------------------
+   تأثير الماوس (Hover): عند الوقوف على الكارت، التليفون يطلع بالكامل
+   ---------------------------------------------------- */
+.stack-card:hover .image-content img {
+    /* 🚀 رفع التليفون بالكامل لأعلى ليظهر الجزء المخفي بسلاسة تامة */
+    transform: translateY(105px); 
+}
+
+/* ----------------------------------------------------
+   التجاوب الذكي للشاشات المتوسطة والصغيرة
+   ---------------------------------------------------- */
+@media (max-width: 992px) {
+    .stack-card {
+        height: 350px;
+        padding-left: 50px;
+    }
+    .text-content h3 { font-size: 28px; }
+    .text-content p { font-size: 16px; }
+    .image-content img { height: 100%; transform: translateY(15px); }
+}
+/* ----------------------------------------------------
+   التجاوب الصارم (Responsive للموبايل)
+   ---------------------------------------------------- */
+@media (max-width: 992px) {
+    .section-header h2 { font-size: 32px; }
+
+    .text-content h3 { font-size: 26px; }
+}
+
+@media (max-width: 768px) {
+    .reach-customers-section { padding: 40px 0; }
+    .section-header { 
+            position: sticky;
+    top: 90px; 
+     margin-bottom: 30px; }
+.stack-card {
+    position: sticky;
+    top: 260px; /* نقطة ارتكاز الكروت تحت الهيدر */
+    
+
+ 
+                
+    /* مسافة السكرول بين الكروت */
+    margin-bottom: 300px; 
+}
+    .text-content { margin-bottom: 24px; display: flex; flex-direction: column; align-items: center; }
+    .image-content { width: 100%; justify-content: center; }
+    .image-content img { height: 240px; }
+
+
+.stack-card:hover .image-content img {
+    transform: scale(1.4)
+}
+.stack-card {
+    /* تغيير الترتيب ليكون عمودياً */
+    flex-direction: column;
+    height: auto; /* ليتناسب مع المحتوى */
+    padding: 40px 20px; /* مساحة مريحة حول المحتوى */
+    text-align: left; /* إجبار النصوص على جهة اليسار */
+    height: 65vh;
+    margin-bottom: 0;
+    }
+
+    .text-content {
+        align-items: flex-start; /* محاذاة الأيقونة والهيد والنص لليسار */
+        text-align: left;
+        width: 96%;
+        margin-left: 40px;
+        gap: 0;
+    }
+
+    .image-content {
+        width: 100%;
+        display: flex;
+        justify-content: center; /* توسيط الصورة في المنتصف أفقياً */
+        align-items: center;
+        order: 2; /* تأكيد أن الصورة تأتي بعد النص */
+    }
+
+    .image-content img {
+
+        transform: translateY(0) scale(1.4); /* إظهار الصورة كاملة وتوسيطها */
+        margin: 0 auto; /* توسيط إضافي */
+    margin-top: 20px;
+    }
+.stack-spacer {
+    margin-top: 0;
+position: sticky;
+    top: 100; /* يبدأ من أول الشاشة */
+    z-index: 2882; /* أعلى من الكروت (كانت 100) ليغطي عليها */
+    background-color: var(--bg-color); /* يجب أن يكون له خلفية ليغطي ما تحته */
+    width: 100%;
+    min-height: 1vh; /* أو الارتفاع الذي تريده */
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   Wallets Support & Video Showcase Section
+============================================= */
+
+.wallets-support-section {
+    width: 100%;
+    background-color: var(--bg-color); /* نفس لون الخلفية الموحد لصفحتك */
+    padding: 100px 0 120px 0;
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* حاوية السيكشن المركزية */
+.wallets-support-section .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ----------------------------------------------------
+   تنسيق الهيدر والنصوص
+   ---------------------------------------------------- */
+.wallets-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.wallets-header h2 {
+        font-size: 38px;
+    font-weight: 800;
+    color: var(--text-color);
+    line-height: 1.2;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.wallets-header .purple-gradient-text {
+    color: #7c3aed; /* اللون البنفسجي المميز لبراندك */
+}
+
+/* ----------------------------------------------------
+   أزرار المحافظ الإلكترونية (طرق الدفع)
+   ---------------------------------------------------- */
+.wallet-buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* مسافة مريحة بين الزرين */
+    margin-bottom: 20px; /* مسافة قبل الوصول للفيديو */
+}
+
+.wallet-btn {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.wallet-btn img {
+    height: 60px; /* الحجم المثالي والمطابق للتصميم الهيكلي للـ Wallets */
+    width: auto;
+    display: block;
+    border-radius: 12px;
+}
+
+/* تأثير حركي عند تمرير الماوس فوق الأزرار */
+.wallet-btn:hover {
+    transform: translateY(-4px) scale(1.02);
+}
+
+/* ----------------------------------------------------
+   حاوية الفيديو الكبير والتأثيرات
+   ---------------------------------------------------- */
+.video-showcase-wrapper {
+    width: 115%;
+    height: 70vh;
+    aspect-ratio: 16 / 10; /* الحفاظ على أبعاد الفيديو العريضة الفخمة المطابقة للصورة */
+    
+            background-image: url('img/Rectangle346.png');
+            background-size: cover;       /* بيخلي الصورة تغطي السيكشن بالكامل مهما كان حجم الشاشة */
+    background-position: center;   /* بيوسطن الصورة في النص بالظبط */
+    background-repeat: no-repeat;  /* بيمنع تكرار الصورة */
+  
+    border-radius: 32px; /* زوايا دائرية ناعمة وحديثة */
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 25px 60px rgba(15, 23, 42, 0.12);
+}
+
+.video-overlay-thumbnail {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+}
+
+.thumbnail-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* لضمان ملء الصورة للحاوية بالكامل بدون تشويه */
+    display: block;
+}
+
+/* طبقة معتمة خفيفة فوق الغلاف لتوضيح زر التشغيل */
+.video-overlay-thumbnail::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.15); /* تظليل ناعم جداً */
+    transition:  0.3s ease;
+}
+
+.video-overlay-thumbnail:hover::before {
+    background: rgba(15, 23, 42, 0.25);
+}
+
+/* ----------------------------------------------------
+   زر تشغيل الفيديو التفاعلي المطور (Play Button)
+   ---------------------------------------------------- */
+.play-video-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 96px;
+    height: 96px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.3s ease;
+}
+
+/* مثلث أيقونة الـ Play الداخلي (تم تصحيحه) */
+.play-icon-triangle {
+    width: 0;
+    height: 0;
+    border-top: 14px solid transparent;    /* تم تعديل stroke إلى solid */
+    border-bottom: 14px solid transparent; /* تم تعديل stroke إلى solid */
+    border-left: 24px solid #1e1b4b;       /* لون المثلث الداكن */
+    transform: translateX(4px);            /* ترحيل خفيف لضبط السنتر البصري داخل الدائرة */
+}
+/* حركة نبض حول زر التشغيل لجذب انتباه العميل للمشاهدة */
+.play-video-btn::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    opacity: 0.6;
+    animation: pulse-ring 2s infinite;
+}
+
+/* تأثير الـ Hover على زر التشغيل */
+.video-overlay-thumbnail:hover .play-video-btn {
+    transform: translate(-50%, -50%) scale(1.1);
+    background-color: #ffffff;
+}
+
+@keyframes pulse-ring {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(1.4); opacity: 0; }
+}
+
+/* ==========================================
+   التجاوب الكامل الذكي (Responsive)
+============================================= */
+
+@media (max-width: 1024px) {
+    .wallets-header h2 { font-size: 42px; }
+    .video-showcase-wrapper { border-radius: 24px; }
+    .play-video-btn { width: 80px; height: 80px; }
+}
+
+@media (max-width: 768px) {
+    .wallets-support-section { padding: 60px 0 80px 0; }
+    .wallets-header h2 { font-size: 32px; }
+    
+    .wallet-buttons-container {
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 40px;
+    }
+    
+    .wallet-btn img { height: 52px; } /* تصغير الأزرار قليلاً لتناسب الموبايل */
+    .video-showcase-wrapper { border-radius: 16px; }
+    .play-video-btn { width: 64px; height: 64px; }
+.play-icon-triangle {
+        border-top: 10px solid transparent;    /* تم تعديل stroke إلى solid */
+        border-bottom: 10px solid transparent; /* تم تعديل stroke إلى solid */
+        border-left: 16px solid #1e1b4b;
+        transform: translateX(2px);
+    }
+}
+@media (max-width: 450px){
+
+    .wallets-header h2 {
+        width: 100%;
+        font-size: 34px;
+    font-weight: 800;
+    color: var(--text-color);
+    line-height: 1.2;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+.wallets-header .purple-gradient-text{
+    font-size: 30px;
+}
+.video-showcase-wrapper {
+    width: 99%;
+    height: 35vh;
+   
+}
+.wallet-buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: -40px; /* مسافة مريحة بين الزرين */
+    align-items: center;
+}
+.wallet-btn img {
+    height: 55px; /* الحجم المثالي والمطابق للتصميم الهيكلي للـ Wallets */
+    width: 120px;
+    display: block;
+    border-radius: 12px;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   Testimonials & Infinite Moving Logos Section
+============================================= */
+
+.testimonials-logos-section {
+    width: 100%;
+    background-color: var(--bg-color);
+    padding: 100px 0 60px 0;
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.testimonials-logos-section .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ----------------------------------------------------
+   1. الهيدر والنصوص
+   ---------------------------------------------------- */
+.testimonials-logos-section .seection-header {
+    text-align: center;
+    margin-bottom: 60px;
+   
+}
+
+.testimonials-logos-section .seection-header h2 {
+      font-size: 38px;
+    font-weight: 800;
+    color:var(--text-color);
+    line-height: 1.2;
+    margin: 0;
+}
+
+.testimonials-logos-section .purple-text {
+    color: #7c3aed;
+}
+
+/* ----------------------------------------------------
+   2. شبكة آراء العملاء (3 أعمدة متناسقة)
+   ---------------------------------------------------- */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* توزيع متساوي تماماً على 3 أعمدة */
+    gap: 30px; /* مسافة مريحة بين الكروت رأسياً وأفقياً */
+}
+
+.testimonial-card {
+     z-index: 2;
+    background-color: var(--bg-color);
+    border: 1px solid #E4E8EC;
+    border-radius: 50px;
+    padding: 32px;
+    width: 90%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.04);
+}
+
+
+/* رأس الكارت (اللوجو والاسم والنوع) */
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.client-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.client-info h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0 0 4px 0;
+}
+
+.client-info p {
+    font-size: 14px;
+    color: var(--text-color);
+    margin: 0;
+}
+
+/* نص الرأي داخل الكارت */
+.testimonial-text {
+    font-size: 15px;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ----------------------------------------------------
+   3. شريط اللوجوهات المتحرك اللانهائي (Infinite Loop Slider)
+   ---------------------------------------------------- */
+.logos-slider-container {
+    width: 100%;
+    overflow: hidden; /* إخفاء أي لوجو يخرج عن حدود الشاشة */
+    position: relative;
+    padding: 20px 0;
+    background-color: var(--bg-color);
+    bottom: 20px;
+}
+
+/* عمل تأثير تدرج شفاف على الأطراف لإعطاء مظهر سينمائي فخم أثناء دخول وخروج اللوجوهات */
+.logos-slider-container::before,
+.logos-slider-container::after {
+    content: "";
+    height: 100%;
+    width: 150px;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    pointer-events: none;
+}
+
+.logos-slider-container::before {
+    left: 0;
+    background: linear-gradient(to right, var(--bg-color), transparent);
+}
+
+.logos-slider-container::after {
+    right: 0;
+    background: linear-gradient(to left, var(--bg-color), transparent);
+}
+
+/* شريط التتبع الداخلي الحامل للمجموعتين */
+.logos-track {
+    display: flex;
+    align-items: center;
+    gap: 80px; /* مسافة أفقية موحدة وفخمة بين اللوجوهات */
+    width: max-content;
+    /* تشغيل الأنيميشن بسرعة ثابتة مريحة جداً للعين لا تتوقف أبداً */
+    animation: infiniteScroll 25s linear infinite;
+}
+
+.logos-track img {
+    height: 105px; /* ارتفاع اللوجوهات الموحد كما في التصميم */
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(0%); /* يحافظ على ألوان اللوجو الأصلية الجذابة */
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.logos-track img:hover {
+    opacity: 1;
+}
+
+/* الـ Keyframes السحرية لتحريك الشريط بنسبة 50% ليرجع البداية بسلاسة بدون أي قطشة */
+@keyframes infiniteScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* الانتقال لنصف عرض التراك بالتمام والكمال لتستمر الحركة للأبد */
+        transform: translateX(-50%);
+    }
+}
+
+/* ==========================================
+   التجاوب الذكي مع الشاشات (Responsive)
+============================================= */
+
+@media (max-width: 1024px) {
+    .testimonials-logos-section .section-header h2 { font-size: 38px; }
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr); /* عمودين فقط في شاشات التابلت */
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonials-logos-section { padding: 60px 0 40px 0; }
+    .testimonials-logos-section .section-header h2 { font-size: 32px; }
+    
+    .testimonials-grid {
+        grid-template-columns: 1fr; /* عمود واحد مريح على الموبايل لتجنب الضيق */
+        gap: 20px;
+        margin-bottom: 60px;
+    }
+    
+    .testimonial-card {
+        margin-left: 20px;
+        padding: 24px; }
+    
+    .logos-track {
+        gap: 50px; /* تقليص المسافة بين اللوجوهات قليلاً لتناسب الموبايل */
+        animation-duration: 18s; /* تسريع الحركة الطفيفة لتتناسب مع الشاشات الصغيرة */
+    }
+    
+    .logos-track img { 
+        transform: scale(2);
+        height: 35px; }
+    .logos-slider-container::before,
+    .logos-slider-container::after {
+        width: 50px; /* تقليل عرض التدرج الشفاف على الموبايل */
+    }
+}
+
+
+.bt {
+    opacity: 0.6;
+    transition: opacity 0.8s ease-in-out; /* حركة ناعمة */
+}
+
+/* الكلاس الذي سنضيفه بالجافا سكريبت عندما يصل الكرت للمنتصف */
+.bt.is-visible {
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   Seamless POS Integrations Section
+============================================= */
+
+.pos-integration-section {
+    width: 100%;
+    background-color: var(--bg-color); /* الحفاظ على الخلفية الموحدة والنظيفة */
+    padding: 100px 0 100px 0;
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+}
+
+.pos-integration-section .container {
+    width: 90%;
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ----------------------------------------------------
+   تنسيق الهيدر والنصوص العلوية
+   ---------------------------------------------------- */
+.pos-header {
+    text-align: center;
+    max-width: 750px;
+    margin-bottom: 60px;
+}
+
+.pos-header h2 {    font-size: 38px;
+    font-weight: 800;
+    color: var(--text-color);
+    line-height: 1.2;
+    margin: 0 0 20px 0;
+    letter-spacing: -0.5px;
+}
+
+.pos-header .purple-text {
+    color: #7c3aed; /* اللون البنفسجي المعتمد للبراند */
+}
+
+.pos-header .pos-subtitle {
+    font-size: 16px;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+}
+/* ----------------------------------------------------
+   شبكة الكروت الثلاثية المرنة (تأثير التمدد والفتح الذكي)
+   ---------------------------------------------------- */
+.pos-logos-grid {
+    display: flex; /* الاعتماد على flex بدلاً من grid للسماح بالتمدد الأفقي */
+    gap: 25px; 
+    width: 100%;
+    max-width: 1000px; 
+    margin: 0 auto 50px auto;
+}
+
+/* التنسيق الأساسي للكارت (الحالة المغلقة الافتراضية) */
+.pos-card {
+    background-color: #EFF2F4; 
+    border-radius: 32px; 
+    height: 260px; 
+    padding: 30px;
+    box-sizing: border-box;
+    overflow: hidden;
+    cursor: pointer;
+    
+    /* نسبة التوزيع الافتراضية للكروت المغلقة */
+    flex: 1; 
+    
+    /* أنيميشن فائق النعومة متوافق مع حركة الفيديوهات */
+    transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
+                background-color 0.4s ease, 
+                box-shadow 0.4s ease;
+}
+
+/* الحاوية الداخلية لسنترة المحتويات */
+.pos-card .card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+}
+
+/* تنسيق اللوجوهات لتبقى متزنة دائماً وثابتة الأبعاد */
+.pos-logo-img {
+    max-height: 45px;
+    width: auto;
+    max-width: 85%;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+}
+
+/* حاوية التفاصيل والنصوص (مخفية تماماً ومتقلصة في الحالة الافتراضية) */
+.pos-details {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin-top: 0;
+    transition: max-height 0.5s cubic-bezier(0.25, 1, 0.5, 1), 
+                opacity 0.4s ease, 
+                margin-top 0.5s ease;
+}
+
+.pos-details h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 8px 0;
+    letter-spacing: 0.5px;
+}
+
+.pos-details p {
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.5;
+    margin: 0;
+    max-width: 240px;
+}
+
+/* ----------------------------------------------------
+   سحر الحركة: عند الوقوف (Hover) أو ثبات الحالة النشطة (Active)
+   ---------------------------------------------------- */
+
+/* 1. تمدد الكارت النشط أفقياً ليأخذ مساحة أكبر من البقية */
+.pos-card:hover,
+.pos-card.active {
+    flex: 1.4; /* جعل عرض الكارت النشط أكبر بشكل ملحوظ */
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
+    transform: translatey(-40px);
+
+}
+
+/* 2. رفع اللوجو قليلاً للأعلى لإعطاء مساحة للنصوص تحتها */
+.pos-card:hover .pos-logo-img,
+.pos-card.active .pos-logo-img {
+    transform: translateY(-5px);
+}
+
+/* 3. انبثاق وتمدد النصوص وظهورها بسلاسة تامة داخل الكارت النشط */
+.pos-card:hover .pos-details,
+.pos-card.active .pos-details {
+    max-height: 120px; /* فتح مساحة كافية للعنوان والوصف */
+    opacity: 1;
+    margin-top: 15px; /* مسافة أمان تفصل اللوجو عن العنوان */
+}
+
+/* ----------------------------------------------------
+   Responsive (التجاوب الكامل على الشاشات الصغيرة)
+   ---------------------------------------------------- */
+@media (max-width: 768px) {
+    .pos-logos-grid {
+        flex-direction: column; /* ترتيب رأسي بدلاً من الأفقي على الموبايل */
+        gap: 60px;
+    }
+    .pos-card {
+        height: auto;
+        flex: none !important; /* إلغاء التمدد الأفقي ليتناسب مع العرض الكامل */
+        padding: 25px;
+    }
+    /* على الموبايل نفضل أن تكون كل النصوص ظاهرة لسهولة القراءة باللمس */
+    .pos-details {
+        max-height: none !important;
+        opacity: 1 !important;
+        margin-top: 15px !important;
+        
+    }
+    .pos-card.active {
+    flex: 1.4; /* جعل عرض الكارت النشط أكبر بشكل ملحوظ */
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
+    transform: translatey(0px);
+
+}
+}
+/* ----------------------------------------------------
+   الجزء السفلي (النص التوضيحي وزر الاتصال)
+   ---------------------------------------------------- */
+.pos-footer {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.pos-footer p {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0 0 20px 0;
+}
+
+/* الزرار الاحترافي بتصميمه الداكن الفخم */
+.btn-contact-us {
+    display: inline-block;
+    background-color: var(--text-color); /* لون داكن جداً وفخم مطابق لطلبك والتصميم */
+    color: var(--bg-color);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 14px 36px;
+    border-radius: 12px; /* حواف دائرية حادة نسبياً وممتازة للأزرار */
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 12px rgba(18, 20, 32, 0.15);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.btn-contact-us:hover {
+    background-color: var(--bg-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(18, 20, 32, 0.25);
+    color: var(--text-color);
+}
+
+.btn-contact-us:active {
+    transform: translateY(0);
+}
+
+/* ==========================================
+   التجاوب الذكي مع الشاشات (Responsive)
+============================================= */
+
+@media (max-width: 1024px) {
+    .pos-header h2 { font-size: 38px; }
+    .pos-logos-grid { gap: 20px; padding: 0 20px; }
+    .pos-card { height: 240px; border-radius: 24px; }
+}
+
+@media (max-width: 768px) {
+    .pos-integration-section { padding: 60px 0 60px 0; }
+    .pos-header h2 { font-size: 32px; }
+    .pos-header { margin-bottom: 40px; }
+    
+    /* تحويل الكروت من الوضع الأفقي إلى الرأسي لحماية شكل المحتوى على الموبايل */
+    .pos-logos-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        max-width: 340px; /* تحجيم العرض على الموبايل لتظل الكروت متناسقة وشكلها شيك */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   Build Your Own Loyalty Plan Section
+============================================= */
+
+.loyalty-plan-section {
+    width: 100%;
+    background-color: var(--bg-color);
+    padding: 100px 0;
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+}
+
+.loyalty-plan-section .container {
+    width: 90%;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+/* الهيدر */
+.plan-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+}
+
+.plan-header h2 {
+    font-size: 38px;
+    font-weight: 800;
+    color: var(--text-color);
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+.plan-header .purple-text {
+    color: #7c3aed;
+}
+
+.plan-header .plan-subtitle {
+    font-size: 16px;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* الكبسولات والميزات الافتراضية */
+.core-features-wrapper {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.core-title {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    color: #7c3aed;
+    margin-bottom: 16px;
+}
+
+.badges-container {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.feature-badge {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid #7c3aed;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* هيكل الحاسبة (يوزع الكروت على اليسار والفاتورة على اليمين) */
+.calculator-wrapper {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 40px;
+    align-items: start;
+    margin-top: 20px;
+}
+
+.calc-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* الكروت اليسرى للتحكم */
+.control-card {
+    background-color: #EFF2F4;
+    border-radius: 16px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-box svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* تلوين خلفيات الأيقونات بنقاء حسب التصميم */
+.bg-mint { background-color: #ccfbf1; }
+.bg-orange { background-color: #ffedd5; }
+.bg-purple { background-color: #ede9fe; }
+.bg-pink { background-color: #fce7f3; }
+
+.control-info h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 4px 0;
+}
+
+.control-info p {
+    font-size: 13px;
+    color: #475569;
+    margin: 0;
+}
+
+/* أداة العداد الرقمي (+ و -) */
+.counter-widget {
+    background-color: #ffffff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding: 4px 8px;
+    gap: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.counter-widget button {
+    background: none;
+    border: none;
+    font-size: 14px;
+    font-weight: 700;
+    color: #7c3aed;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.counter-value {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f172a;
+    min-width: 20px;
+    text-align: center;
+}
+
+/* أزرار الـ Toggle Switch البنفسجية المتجاوبة */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #cbd5e1;
+    transition: .3s ease;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .3s ease;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #7c3aed;
+}
+
+input:checked + .slider:before {
+    transform: translateX(24px);
+}
+
+/* ----------------------------------------------------
+   تصميم لوحة الفاتورة اليمين (Selected Plan Total)
+   ---------------------------------------------------- */
+.calc-invoice-panel {
+    background-color: #EFF2F4;
+    border-radius: 20px;
+    padding: 36px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.invoice-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #334155;
+    margin: 0 0 24px 0;
+}
+
+.price-display {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    margin-bottom: 24px;
+    background-color: #ffffff;
+    padding: 16px;
+    border-radius: 12px;
+}
+
+.price-number {
+    font-size: 44px;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.price-currency-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 8px;
+}
+
+.price-currency-group .currency {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.price-currency-group .period {
+    font-size: 14px;
+    color: #475569;
+    font-weight: 600;
+}
+
+/* بنود الحساب الداخلي */
+.invoice-breakdown {
+    border-top: 1px solid #cbd5e1;
+    padding-top: 16px;
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.invoice-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #334155;
+    font-weight: 500;
+}
+
+.invoice-item .item-price {
+    font-weight: 700;
+    color: #0f172a;
+}
+
+/* صندوق الملاحظات البنفسجي للسبورت */
+.priority-support-note {
+    background-color: #ded9fe85;
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    text-align: left;
+    margin-bottom: 24px;
+}
+
+.support-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.priority-support-note p {
+    font-size: 11px;
+    color: #475569;
+    line-height: 1.5;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* زر الاشتراك الكبير والبارز بنعومة */
+.btn-subscribe-now {
+    width: 100%;
+    background-color: #7c3aed;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-subscribe-now:hover {
+    background-color: #6d28d9;
+    transform: translateY(-1px);
+}
+
+/* التجاوب السلس مع جميع الشاشات والموبايل */
+@media (max-width: 1024px) {
+    .calculator-wrapper { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+    .plan-header h2 { font-size: 32px; }
+    .control-card { flex-direction: column; gap: 16px; text-align: center; }
+    .card-left { flex-direction: column; }
+    .badges-container { gap: 8px; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   Main Site Footer (Two-Column Layout)
+============================================= */
+
+.main-site-footer {
+    width: 100%;
+    background-color: var(--bg-color); 
+    padding: 90px 0 0px 0;
+    height: auto;
+    box-sizing: border-box;
+}
+
+.main-site-footer .container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* حاوية الكارت الكحلي الداكن الفخم */
+.footer-dark-card {
+    box-shadow: 0 -25px 60px -10px rgba(98, 7, 255, 0.564);
+
+    background-color: #040119; 
+    border-radius: 40px 40px 0 0; /* دائرية من الأعلى فقط لارتكاز الأرضية */
+    padding: 80px 60px 40px 60px; /* توحيد الـ padding للجوانب بالتساوي */
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ----------------------------------------------------
+   الجزء العلوي (CTA Row) - انقسام صريح يمين ويسار
+   ---------------------------------------------------- */
+.footer-cta-row {
+    display: flex;
+    justify-content: space-around;
+
+    margin-bottom: 60px;
+    
+}
+
+/* الجزء الأيسر: البراند والتواصل */
+.cta-left-brand {
+    margin-left: 40PX;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 100px; /* مسافة متناسقة تمنع التباعد المفرط */
+}
+
+.footer-logo img {
+    height: 44px;
+    width: auto;
+    display: block;
+    transform: scale(1.4);
+    margin-left: 10PX;
+}
+
+.footer-contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.contact-link {
+    color: white;
+    font-size: 15px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.contact-link:hover {
+    color: #ffffff;
+}
+
+/* الجزء الأيمن: المحتوى والزر محاذى لليمين تماماً */
+.cta-right-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* تبدأ النصوص من اليسار وتتحرك ككتلة واحدة جهة اليمين */
+  
+}
+
+.cta-right-content h2 {
+    font-size: 44px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0 0 12px 0;
+    letter-spacing: -0.5px;
+}
+
+.purple-bright-text {
+    color: #7c3aed; 
+}
+
+.trial-text {
+    font-size: 16px;
+    color: #a78bfa; 
+    margin: 0 0 24px 0;
+    font-weight: 500;
+}
+
+.btn-footer-contact {
+    display: inline-block;
+    background-color: #7c3aed;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 14px 32px;
+    border-radius: 10px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3);
+    transition: all 0.2s ease;
+}
+
+.btn-footer-contact:hover {
+    background-color: #6d28d9;
+    transform: translateY(-2px);
+}
+
+/* الخط الفاصل الشفاف النظيف */
+.footer-divider {
+    border: 0;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.08);
+    margin: 0 0 32px 0;
+}
+
+/* ----------------------------------------------------
+   الجزء السفلي (Bottom Row) - توازن كامل ومثالي
+   ---------------------------------------------------- */
+.footer-bottom-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+}
+
+/* الجانب الأيسر للسفلي (الشارات) */
+.footer-bottom-left-side {
+    flex: 1;
+    margin-left: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-badges-group {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+.mini-wallet-btn img {
+    height: 35px;
+    width: auto;
+    display: block;
+    transform: scale(1.2);
+}
+
+.saudi-tech-badge img {
+    height: 38px;
+    width: auto;
+    display: block;
+        transform: scale(1.2);
+}
+
+/* الجانب الأيمن للسفلي (جميع الروابط والحقوق في سطر واحد مدمج) */
+.footer-bottom-right-side {
+    display: flex;
+    gap: 60px;
+    position: relative;
+    right: 280px;
+}
+
+.footer-legal-and-meta {
+    display: flex;
+    align-items: center;
+    gap: 52px; /* مسافة أفقية متناسقة بين المجموعات الثلاث */
+    flex-wrap: wrap;
+}
+
+.footer-links-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.footer-links-group a, .support-link {
+    font-size: 13px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    color: white;
+}
+
+.footer-links-group a:hover, .support-link:hover {
+    color: #ffffff;
+}
+
+.footer-meta-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.cr-number {
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+}
+.footer-copyright{
+    display: flex;
+        justify-content: end;
+    align-items: end;
+    text-align: end;
+
+}
+.footer-copyright p {
+    color: white;
+    font-size: 13px;
+    margin: 0;
+    font-weight: 500;
+
+}
+
+/* ==========================================
+   التجاوب الذكي مع الشاشات (Responsive)
+============================================= */
+
+@media (max-width: 1024px) {
+    .footer-dark-card { padding: 60px 40px 40px 40px; }
+    .cta-right-content h2 { font-size: 36px; }
+    .footer-legal-and-meta { gap: 20px; }
+}
+
+@media (max-width: 768px) {
+    .footer-dark-card { border-radius: 32px 32px 0 0; padding: 40px 24px 40px 24px; }
+    
+    /* تحويل محتوى الفوتر لعمودي بالكامل على الموبايل لسهولة القراءة */
+    .footer-cta-row {
+        flex-direction: column;
+        gap: 40px;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .cta-left-brand { align-items: center; gap: 30px; }
+    .cta-right-content { align-items: center; text-align: center; }
+    
+    .footer-bottom-row {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .footer-bottom-right-side {
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        position: relative;
+        left: 35px;
+        right: 0;
+        gap: 90px;
+        justify-content: center; }
+    .footer-legal-and-meta {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+    
+     .footer-meta-group {
+        justify-content: center;
+        gap: 2px;
+        text-align: end;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        bottom:90px;
+    }
+    .footer-links-group{
+                justify-content: center;
+        gap: 2px;
+        text-align: end;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        bottom:50px;
+    }
+    .cta-left-brand{
+        margin-left: 0;
+        margin-right: 5px;
+    }
+    .footer-logo{
+        margin-left: 0;
+        margin-right: 10px;
+    }
+    .saudi-tech-badge{
+        position: absolute;
+        bottom: 80px;
+        right: 40%;
+        transform: scale(1.5);
+        
+    }
+    .footer-contact-info{
+        position: absolute;
+        top: 400px;
+    }
+    .mini-wallet-btn{
+        position: relative;
+        top: 60px;
+    }
+    .footer-copyright{
+        position: relative;
+        bottom: 95px;
+    }
+    .footer-dark-card {
+        height: 105vh;
+    }
+}
+
+body{
+    background-color: var(--bg-color);
+}
+html{
+    background-color: var(--bg-color);
+}
