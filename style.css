@@ -12,6 +12,26 @@
   --text-color: #ffffff;
 }
 
+.cursor-dot {
+  width: 18px;
+  height: 18px;
+  background-color: var(--text-color);
+ box-shadow: 4px 4px 8px var(--bg-color), -4px -4px 8px var(--bg-color), -4px 4px 8px var(--bg-color), 4px -4px 8px var(--bg-color);  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999999999999999999999999999;
+  transition: transform 0.1s ease-out;
+}
+
+.cursor-active {
+  box-shadow: 4px 4px 8px var(--text-color), -4px -4px 8px var(--text-color), -4px 4px 8px var(--text-color), 4px -4px 8px var(--text-color);
+  transform: scale(3);
+  mix-blend-mode: color-dodge;
+  background-color: var(--bg-color);
+}
+
 
 
 
@@ -569,7 +589,7 @@ top: 20px;
     position: absolute;
     width: 180px;
     transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
-    cursor: pointer;
+    
 bottom: 50px;
 }
 
@@ -613,13 +633,14 @@ bottom: 50px;
 }
 
 .frame-img { 
+    
     transform: scale(1.4);
     width: 100%; }
 .active-card-img {
     position: absolute;
-    top: 26%; left: 8%;
-    width: 86%;
-    transform: scale(1.1);
+    top: 27%; left: 8%;
+    width: 83%;
+    transform: scale(1.12);
     border-radius: 25px;
     z-index: 66;
     transition: opacity 0.3s ease;
@@ -951,7 +972,7 @@ height: 80vh;
     border-radius: 30px; /* شكل بيضاوي رائع كالتصميم */
     font-size: 14px;
     font-weight: 600;
-    cursor: pointer;
+   
     transition: all 0.3s ease;
 }
 
@@ -1191,7 +1212,6 @@ height: 80vh;
     border-radius: 12px;
     font-size: 14px;
     font-weight: 600;
-    cursor: pointer;
     transition: all 0.3s ease;
 }
 
@@ -1273,7 +1293,7 @@ height: 80vh;
     height: auto;
     border-radius: 14px;
     box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-    cursor: pointer;
+
     /* الأنيميشن السلس والمسؤول عن زق وإزاحة الكروت يمين وشمال */
     transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease, z-index 0.5s;
 }
@@ -1365,7 +1385,7 @@ height: 80vh;
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 28px;
+    border-radius: 35px;
 }
 
 /* الخصائص الأساسية المشتركة للقطع الزجاجية الملونة ديناميكياً */
@@ -2555,7 +2575,7 @@ position: sticky;
     width: 100%;
     height: 100%;
     position: relative;
-    cursor: pointer;
+   
 }
 
 .thumbnail-img {
@@ -2594,7 +2614,6 @@ position: sticky;
     background-color: rgba(255, 255, 255, 0.95);
     border: none;
     border-radius: 50%;
-    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3032,7 +3051,6 @@ position: sticky;
     padding: 30px;
     box-sizing: border-box;
     overflow: hidden;
-    cursor: pointer;
     
     /* نسبة التوزيع الافتراضية للكروت المغلقة */
     flex: 1; 
@@ -3379,7 +3397,7 @@ position: sticky;
     font-size: 14px;
     font-weight: 700;
     color: #7c3aed;
-    cursor: pointer;
+
     width: 24px;
     height: 24px;
     display: flex;
@@ -3411,7 +3429,6 @@ position: sticky;
 
 .slider {
     position: absolute;
-    cursor: pointer;
     top: 0; left: 0; right: 0; bottom: 0;
     background-color: #cbd5e1;
     transition: .3s ease;
@@ -3551,7 +3568,6 @@ input:checked + .slider:before {
     padding: 16px;
     font-size: 16px;
     font-weight: 700;
-    cursor: pointer;
     box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
@@ -3919,7 +3935,14 @@ input:checked + .slider:before {
     .footer-dark-card {
         height: 105vh;
     }
-}
+
+
+
+
+
+.cursor-dot{
+    display: none;
+}}
 
 body{
     background-color: var(--bg-color);
@@ -3945,4 +3968,7 @@ html{
 /* أو بشكل أكثر تحديداً */
 *:not(.fas):not(.fa):not(.fab):not(.far) {
     font-family: 'Neo Sans Arabic', sans-serif !important;
+}
+*{
+    cursor: none;
 }

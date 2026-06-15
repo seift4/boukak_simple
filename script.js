@@ -1129,45 +1129,72 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+// 2. الكرسر المخصص (Custom Cursor)
 
+const cursorDot = document.querySelector(".cursor-dot");
 
+if (cursorDot) {
 
+window.addEventListener("mousemove", (e) => {
 
+cursorDot.style.transform = `translate(${e.clientX - 6}px, ${e.clientY - 6}px)`;
 
-
-
-
-
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-    const displayZone = document.querySelector('.display-zone');
-    const mainActiveCard = document.getElementById('main-active-card');
-    
-    // الترتيب: A, B, C, D, E (الكرت يتحرك من A -> B -> C -> D -> E -> A)
-    const positions = ['pos-a', 'pos-b', 'pos-c', 'pos-d', 'pos-e'];
-
-    function rotateCards() {
-        const cards = Array.from(document.querySelectorAll('.card-item'));
-        
-        // هنا التغيير: نأخذ الكرت الأول وننقله لنهاية السلسلة (للحركة من اليمين للشمال)
-        const firstCard = cards[0];
-        displayZone.appendChild(firstCard); 
-
-        // إعادة توزيع الكلاسات بناءً على الترتيب الجديد
-        const updatedCards = Array.from(document.querySelectorAll('.card-item'));
-        updatedCards.forEach((card, index) => {
-            card.className = 'card-item'; // مسح الكلاسات القديمة
-            card.classList.add(positions[index]); // إضافة الكلاس الجديد
-
-            // تحديث الفريم عند الوصول للمنتصف (pos-c)
-            if (positions[index] === 'pos-c') {
-                mainActiveCard.src = card.src;
-            }
-        });
-    }
-
-    // تشغيل الحركة كل 4 ثوانٍ
-    setInterval(rotateCards, 6000);
 });
+
+
+
+const interactives = document.querySelectorAll('a, button, h1, p, h2, h3, span, svg, li, .nav-link');
+
+interactives.forEach(el => {
+
+el.addEventListener('mouseenter', () => cursorDot.classList.add('cursor-active'));
+
+el.addEventListener('mouseleave', () => cursorDot.classList.remove('cursor-active'));
+
+});
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// document.addEventListener("DOMContentLoaded", () => {
+//     const displayZone = document.querySelector('.display-zone');
+//     const mainActiveCard = document.getElementById('main-active-card');
+    
+//     // الترتيب: A, B, C, D, E (الكرت يتحرك من A -> B -> C -> D -> E -> A)
+//     const positions = ['pos-a', 'pos-b', 'pos-c', 'pos-d', 'pos-e'];
+
+//     function rotateCards() {
+//         const cards = Array.from(document.querySelectorAll('.card-item'));
+        
+//         // هنا التغيير: نأخذ الكرت الأول وننقله لنهاية السلسلة (للحركة من اليمين للشمال)
+//         const firstCard = cards[0];
+//         displayZone.appendChild(firstCard); 
+
+//         // إعادة توزيع الكلاسات بناءً على الترتيب الجديد
+//         const updatedCards = Array.from(document.querySelectorAll('.card-item'));
+//         updatedCards.forEach((card, index) => {
+//             card.className = 'card-item'; // مسح الكلاسات القديمة
+//             card.classList.add(positions[index]); // إضافة الكلاس الجديد
+
+//             // تحديث الفريم عند الوصول للمنتصف (pos-c)
+//             if (positions[index] === 'pos-c') {
+//                 mainActiveCard.src = card.src;
+//             }
+//         });
+//     }
+
+//     // تشغيل الحركة كل 4 ثوانٍ
+//     setInterval(rotateCards, 6000);
+// });
