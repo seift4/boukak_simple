@@ -334,6 +334,28 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ==========================================
    Premium Hero Section Styling
 ============================================= */
@@ -530,15 +552,6 @@ top: 20px;
    ---------------------------------------------------- */
 
 
-
-
-
-
-
-
-
-
-
      .display-zone {
         margin-top: 60px;
     position: relative;
@@ -562,7 +575,7 @@ bottom: 50px;
 
 /* المواقع الخمسة */
 .pos-a {
-     left: 10%; z-index: 1;
+     left: 9%; z-index: 1;
     transform: perspective(1000px) rotateY(-30deg) scale(1.2);
         transition: transform 0.5s ease;
     border-radius: 30px;
@@ -570,22 +583,24 @@ bottom: 50px;
 
 .pos-b { 
     
- left: 24%; z-index: 2;
+ left: 23.5%; z-index: 2;
    transform: perspective(1000px) rotateY(-30deg) scale(1.4);
     transition: transform 0.5s ease; 
      border-radius: 30px;
+     z-index: 6;
 }
 .pos-c {
     display: none;
  } /* المركز */
 .pos-d { 
-     right: 24%; z-index: 2;
+     right: 23.5%; z-index: 2;
         transform: perspective(1000px) rotateY(30deg)scale(1.4);
         transition: transform 0.5s ease;
     border-radius: 30px; 
+     z-index: 6;
 }
 .pos-e {
-     right: 10%; z-index: 1;
+     right: 9%; z-index: 1;
        transform: perspective(1000px) rotateY(30deg) scale(1.2);
     transition: transform 0.5s ease; 
      border-radius: 30px;
@@ -603,10 +618,19 @@ bottom: 50px;
 .active-card-img {
     position: absolute;
     top: 26%; left: 8%;
-    width: 84%;
+    width: 86%;
     transform: scale(1.1);
+    border-radius: 25px;
+    z-index: 66;
     transition: opacity 0.3s ease;
 }
+
+.card-item {
+    transition: 1s;
+    overflow: hidden;   /* لإخفاء أي شيء يخرج عن حدود الكرت */
+    border-radius: 30px; /* ليتناسب مع شكل الكرت */
+}
+
 /* ==========================================
    التجاوب الذكي والشامل مع الشاشات (Responsive)
 ============================================= */
@@ -737,11 +761,12 @@ height: 80vh;
         left: 0; /* إلغاء الإزاحة الثابتة */
         top: 0;
         height: 250px;
+        overflow: visible;
     }
 
     .card-item {
         border-radius: 15px;
-        width: 100px; /* تصغير حجم الكروت */
+        width: 80px; /* تصغير حجم الكروت */
         bottom: 29px;
     }
 
@@ -753,16 +778,25 @@ height: 80vh;
     top: 31%; left: 16%;
     width: 67%;
     transform: scale(1.1);
+    z-index: 100;
     transition: opacity 0.3s ease;
 }
     
     .frame-img { transform: scale(1.1); }
     
     /* جعل الكروت الجانبية تظهر بشكل متقارب */
-    .pos-a { left: 0%; transform: scale(1); }
-    .pos-b { left: 10%; transform: scale(1.1); }
-    .pos-d { right: 10%; transform: scale(1.1); }
-    .pos-e { right: 0%; transform: scale(1); }
+    .pos-a {
+        z-index: -1;
+        left: -3%; transform: scale(1); }
+    .pos-b {
+        z-index: -1;
+         left: 10%; transform: scale(1.1); }
+    .pos-d {
+        z-index: -1;
+        right: 10%; transform: scale(1.1); }
+    .pos-e {
+        z-index: -2;
+        right: -3%; transform: scale(1); }
 
 
     .left-side {
@@ -770,7 +804,7 @@ height: 80vh;
     justify-content: flex-start;
     position: absolute;
     bottom: 0;
-    top: 285px;
+    top: 270px;
     right: 100px;
 
     transform: scale(.8);
@@ -780,11 +814,20 @@ height: 80vh;
     display: flex;
     justify-content: flex-end;
   position: absolute;
-    top:  280px;
+    top:  265px;
     left: 130px;
     transform: scale(.5);
 }
+
+
+
+ .hero-premium-section {
+    height: 90vh;
+ }
+
 }
+
+
 
 /* 1. العنوان والوصف (ينزلوا سوياً) */
 .hero-top-content h1, .hero-subtitle {
@@ -812,6 +855,10 @@ height: 80vh;
 }
 
 /* 
+
+
+
+
 
 
 
@@ -969,6 +1016,8 @@ height: 80vh;
 
 /* 6. Subscription Card */
 .tab-content-item:nth-child(6) h3 { color: #A6CEFF; }
+
+.tab-content-item:nth-child(7) h3 { color: #92B1C6; }
 
 /* زر TRY A DEMO السفلي */
 .btn-tab-demo {
@@ -3826,6 +3875,15 @@ html{
     background-color: var(--bg-color);
 }
 
-*{
-    font-family: 'Neo Sans Arabic', sans-serif;
+
+@font-face {
+    font-family: 'Neo Sans Arabic';
+    src: url('../fonts/NeoSansArabic-Regular.woff2') format('woff2'),
+         url('../fonts/NeoSansArabic-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; /* دي أهم حاجة عشان الخط يظهر بسرعة على الموبايل */
+}
+* {
+    font-family: 'Neo Sans Arabic', sans-serif !important;
 }

@@ -1110,3 +1110,64 @@ document.addEventListener('DOMContentLoaded', () => {
     function switchToArabic() { changeLanguage('ar'); }
     function switchToEnglish() { changeLanguage('en'); }
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const displayZone = document.querySelector('.display-zone');
+    const mainActiveCard = document.getElementById('main-active-card');
+    
+    // الترتيب: A, B, C, D, E (الكرت يتحرك من A -> B -> C -> D -> E -> A)
+    const positions = ['pos-a', 'pos-b', 'pos-c', 'pos-d', 'pos-e'];
+
+    function rotateCards() {
+        const cards = Array.from(document.querySelectorAll('.card-item'));
+        
+        // هنا التغيير: نأخذ الكرت الأول وننقله لنهاية السلسلة (للحركة من اليمين للشمال)
+        const firstCard = cards[0];
+        displayZone.appendChild(firstCard); 
+
+        // إعادة توزيع الكلاسات بناءً على الترتيب الجديد
+        const updatedCards = Array.from(document.querySelectorAll('.card-item'));
+        updatedCards.forEach((card, index) => {
+            card.className = 'card-item'; // مسح الكلاسات القديمة
+            card.classList.add(positions[index]); // إضافة الكلاس الجديد
+
+            // تحديث الفريم عند الوصول للمنتصف (pos-c)
+            if (positions[index] === 'pos-c') {
+                mainActiveCard.src = card.src;
+            }
+        });
+    }
+
+    // تشغيل الحركة كل 4 ثوانٍ
+    setInterval(rotateCards, 6000);
+});
