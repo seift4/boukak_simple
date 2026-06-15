@@ -1699,12 +1699,6 @@ background: linear-gradient(to bottom, rgba(15, 15, 26, 0.792) 0%, rgba(124, 58,
     color: var(--text-color);
     margin-bottom: 50px;
 }
-.how-it-works-section {
-            padding-top: 0;
-        
-        margin-bottom: 0;
-        padding-bottom: 0;
-}
 
 .how-it-works-section .container{
             padding-top: 0;
@@ -2097,7 +2091,7 @@ background: linear-gradient(to bottom, rgba(15, 15, 26, 0.792) 0%, rgba(124, 58,
 
 @media (max-width: 768px) {
     .features-section {
-    height: 210vh;
+    height: 220vh;
     width: 100%;
     padding: 100px 0;
     background-color: var(--bg-color); /* خلفية فاتحة ومريحة تبرز ألوان الموبايلات */
@@ -3922,6 +3916,12 @@ html{
     font-style: normal;
     font-display: swap; /* دي أهم حاجة عشان الخط يظهر بسرعة على الموبايل */
 }
-* {
+/* استثناء الأيقونات التي تستخدم كلاسات fontawesome */
+*:not(i):not(.fas):not(.fa) {
+    font-family: 'Neo Sans Arabic', sans-serif !important;
+}
+
+/* أو بشكل أكثر تحديداً */
+*:not(.fas):not(.fa):not(.fab):not(.far) {
     font-family: 'Neo Sans Arabic', sans-serif !important;
 }
