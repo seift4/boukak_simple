@@ -824,7 +824,10 @@ height: 80vh;
  .hero-premium-section {
     height: 90vh;
  }
-
+.hero-bottom-showcase{
+    position: relative;
+    bottom: 80px;
+}
 }
 
 
