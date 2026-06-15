@@ -766,8 +766,9 @@ height: 80vh;
 
     .card-item {
         border-radius: 15px;
-        width: 80px; /* تصغير حجم الكروت */
+        width: 83px; /* تصغير حجم الكروت */
         bottom: 29px;
+        height: 115px;
     }
 
     .viewport-box {
