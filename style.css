@@ -786,7 +786,7 @@ height: 80vh;
     }
 
     .card-item {
-        border-radius: 15px;
+        border-radius: 10px;
         width: 83px; /* تصغير حجم الكروت */
         bottom: 29px;
         height: 115px;
@@ -802,6 +802,7 @@ height: 80vh;
     transform: scale(1.1);
     z-index: 100;
     transition: opacity 0.3s ease;
+    border-radius: 10px;
 }
     
     .frame-img { transform: scale(1.1); }

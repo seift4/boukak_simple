@@ -913,14 +913,14 @@ document.addEventListener('DOMContentLoaded', () => {
             'login': 'تسجيل الدخول',
             'contact': 'اتصل بنا',
 
-            'hero_title': 'طريقة أذكى للحفاظ على ',
-            'hero_title_span': 'عودة عملائك باستمرار',
-            'hero_subtitle': 'أطلق بطاقات ولاء رقمية ونظام مكافآت وتنبيهات تلقائية في دقائق معدودة.',
+            'hero_title': 'خلّي عملاءك',
+            'hero_title_span': 'يرجعون لك باستمرار',
+            'hero_subtitle': 'أطلق بطاقات ولاء رقمية، مكافآت، وإشعارات ذكية لزيادة تفاعل العملاء ورفع الزيارات المتكررة بسهولة.',
             'contact_us': 'اتصل بنا',
-            'try_demo': 'جرّب العرض التجريبي',
+            'try_demo': 'ابدأ التجربة',
 
-            'trusted_by': 'موثوق من قبل',
-            'trust_count': '+100 شركة وعمل تجاري',
+            'trusted_by': 'موثوق لدى أكثر',
+            'trust_count': 'من 100 نشاط تجاري',
 
             'card_type_title': 'أنواع ',
             'card_type_title_span': 'البطاقات',
