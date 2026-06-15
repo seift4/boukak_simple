@@ -819,14 +819,20 @@ height: 80vh;
     transform: scale(.5);
 }
 
-
+.hero-top-content{
+    position: relative;
+    top: 60px;
+}
 
  .hero-premium-section {
-    height: 80vh;
+    height: 70vh;
  }
 .hero-bottom-showcase{
     position: relative;
     bottom: 140px;
+}
+.container{
+    gap: 0;
 }
 }
 
