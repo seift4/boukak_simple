@@ -830,7 +830,7 @@ height: 80vh;
  }
 .hero-bottom-showcase{
     position: relative;
-    bottom: 140px;
+    bottom: 70px;
 }
 .container{
     gap: 0;
@@ -2091,7 +2091,7 @@ background: linear-gradient(to bottom, rgba(15, 15, 26, 0.792) 0%, rgba(124, 58,
 
 @media (max-width: 768px) {
     .features-section {
-    height: 220vh;
+    height: 240vh;
     width: 100%;
     padding: 100px 0;
     background-color: var(--bg-color); /* خلفية فاتحة ومريحة تبرز ألوان الموبايلات */
@@ -2389,15 +2389,36 @@ position: sticky;
     text-align: left; /* إجبار النصوص على جهة اليسار */
     height: 65vh;
     margin-bottom: 0;
+    padding-top: 10px;
     }
 
-    .text-content {
+    .stack-card .text-content {
         align-items: flex-start; /* محاذاة الأيقونة والهيد والنص لليسار */
         text-align: left;
         width: 96%;
         margin-left: 40px;
-        gap: 0;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0;
     }
+.icon-wrapper svg {
+    margin: 0;
+    position: relative;
+    top: 18px;
+    width: 44px; /* حجم الأيقونة النحيفة مطابق للصورة */
+    height: 38px;
+}
+
+.text-content h3 {
+    margin: 0;
+    margin-bottom: 9px;
+    letter-spacing: -0.5px;
+}
+
+.text-content p {
+    margin: 0;
+    max-width: 490px; /* منع النص من الاستطالة ليتطابق مع أبعاد الصورة */
+}
 
     .image-content {
         width: 100%;
